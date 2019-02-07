@@ -42,7 +42,7 @@ Follow the official  [Android Setup Guide](https://ionicframework.com/docs/insta
 
 4. Running with Cordova
     ```
-    & ionic cordova run android -l
+    $ ionic cordova run android -l
     ```
 
 
