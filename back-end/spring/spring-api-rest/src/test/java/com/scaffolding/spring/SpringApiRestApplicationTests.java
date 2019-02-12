@@ -114,6 +114,24 @@ public class SpringApiRestApplicationTests {
 	}
 
 	@Test
+	public void testCreateEntity_WithoutMandatoryField() {
+
+		// Prepare mock data
+		EntityModel mockEntity = new EntityModel();
+		mockEntity.setEntityDescription("Creating an entity for testing...");
+
+		// Prepare request
+		ResponseEntity<EntityModel> response = restTemplate.postForEntity(getRootUrl() + "/entities", mockEntity,
+				EntityModel.class);
+
+		// Assertions
+		Assert.assertNotNull(response);
+		Assert.assertNull(response.getBody());
+		Assert.assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
+
+	}
+
+	@Test
 	public void testUpdateEntity_Found() throws JsonProcessingException {
 
 		// Prepare mock data
