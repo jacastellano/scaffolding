@@ -126,7 +126,6 @@ public class SpringApiRestApplicationTests {
 
 		// Assertions
 		Assert.assertNotNull(response);
-		Assert.assertNull(response.getBody());
 		Assert.assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
 
 	}
@@ -189,6 +188,31 @@ public class SpringApiRestApplicationTests {
 		Assert.assertNotNull(response);
 		Assert.assertNull(response.getBody());
 		Assert.assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+
+	}
+
+	@Test
+	public void testUpdateEntity_WithoutMandatoryField() throws JsonProcessingException {
+
+		// Prepare mock data
+		EntityModel mockEntity = new EntityModel();
+		mockEntity.setEntityTitle("");
+		mockEntity.setEntityDescription("Updating an entity for testing...");
+
+		// Prepare request
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+		String requestBody = ow.writeValueAsString(mockEntity);
+		HttpEntity<String> httpEntity = new HttpEntity<String>(requestBody, headers);
+
+		// Request
+		ResponseEntity<EntityModel> response = restTemplate.exchange(getRootUrl() + "/entities/2", HttpMethod.PUT,
+				httpEntity, EntityModel.class);
+
+		// Assertions
+		Assert.assertNotNull(response);
+		Assert.assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
 
 	}
 
