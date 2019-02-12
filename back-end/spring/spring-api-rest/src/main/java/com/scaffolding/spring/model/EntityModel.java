@@ -7,12 +7,16 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
 public class EntityModel {
 
 	private @Id @GeneratedValue Long entityId;
+	@NotNull
+	@NotEmpty
 	private String entityTitle;
 	private String entityDescription;
 	private Date createDate;

@@ -3,6 +3,7 @@ package com.scaffolding.spring.controler;
 import java.util.Date;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -53,7 +54,7 @@ public class EntityController {
 	 * @return the entity object that it was created
 	 */
 	@PostMapping("/entities")
-	public ResponseEntity<EntityModel> createEntity(@RequestBody EntityModel entity) {
+	public ResponseEntity<EntityModel> createEntity(@Valid @RequestBody EntityModel entity) {
 		entity.setCreateDate(new Date());
 		return new ResponseEntity<>(repository.save(entity), HttpStatus.CREATED);
 	}
@@ -61,12 +62,13 @@ public class EntityController {
 	/**
 	 * Update an entity
 	 * 
-	 * @param entity an entity object with new values
+	 * @param entity   an entity object with new values
 	 * @param entityId
 	 * @return the entity object that it was updated
 	 */
 	@PutMapping("/entities/{entityId}")
-	public ResponseEntity<EntityModel> updateEntity(@RequestBody EntityModel entity, @PathVariable Long entityId) {
+	public ResponseEntity<EntityModel> updateEntity(@Valid @RequestBody EntityModel entity,
+			@PathVariable Long entityId) {
 
 		return repository.findById(entityId).map(e -> {
 			e.setEntityTitle(entity.getEntityTitle());
