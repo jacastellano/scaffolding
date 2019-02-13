@@ -22,7 +22,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.scaffolding.spring.model.EntityModel;
+import com.scaffolding.spring.main.domain.EntityDTO;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SpringApiRestApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -46,8 +46,8 @@ public class SpringApiRestApplicationTests {
 	public void testFindEntityById_Found() {
 
 		// Request
-		ResponseEntity<EntityModel> response = restTemplate.getForEntity(getRootUrl() + "/entities/1",
-				EntityModel.class);
+		ResponseEntity<EntityDTO> response = restTemplate.getForEntity(getRootUrl() + "/entities/1",
+				EntityDTO.class);
 
 		// Assertions
 		Assert.assertNotNull(response);
@@ -59,8 +59,8 @@ public class SpringApiRestApplicationTests {
 	public void testFindEntityById_NotFound() {
 
 		// Request
-		ResponseEntity<EntityModel> response = restTemplate.getForEntity(getRootUrl() + "/entities/1000000",
-				EntityModel.class);
+		ResponseEntity<EntityDTO> response = restTemplate.getForEntity(getRootUrl() + "/entities/1000000",
+				EntityDTO.class);
 
 		// Assertions
 		Assert.assertNotNull(response);
@@ -72,11 +72,11 @@ public class SpringApiRestApplicationTests {
 	public void testFindAllEntities() {
 
 		// Prepare request
-		ParameterizedTypeReference<List<EntityModel>> responseType = new ParameterizedTypeReference<List<EntityModel>>() {
+		ParameterizedTypeReference<List<EntityDTO>> responseType = new ParameterizedTypeReference<List<EntityDTO>>() {
 		};
 
 		// Request
-		ResponseEntity<List<EntityModel>> response = restTemplate.exchange(getRootUrl() + "/entities", HttpMethod.GET,
+		ResponseEntity<List<EntityDTO>> response = restTemplate.exchange(getRootUrl() + "/entities", HttpMethod.GET,
 				null, responseType);
 
 		// Assertions
@@ -89,16 +89,16 @@ public class SpringApiRestApplicationTests {
 	public void testCreateEntity() {
 
 		// Prepare mock data
-		EntityModel mockEntity = new EntityModel();
+		EntityDTO mockEntity = new EntityDTO();
 		mockEntity.setEntityTitle("Entity for testing");
 		mockEntity.setEntityDescription("Creating an entity for testing...");
 
 		// Prepare request
-		ResponseEntity<EntityModel> response = restTemplate.postForEntity(getRootUrl() + "/entities", mockEntity,
-				EntityModel.class);
+		ResponseEntity<EntityDTO> response = restTemplate.postForEntity(getRootUrl() + "/entities", mockEntity,
+				EntityDTO.class);
 
 		// Response
-		EntityModel createdEntity = response.getBody();
+		EntityDTO createdEntity = response.getBody();
 
 		// Assertions
 		Assert.assertNotNull(response);
@@ -117,12 +117,12 @@ public class SpringApiRestApplicationTests {
 	public void testCreateEntity_WithoutMandatoryField() {
 
 		// Prepare mock data
-		EntityModel mockEntity = new EntityModel();
+		EntityDTO mockEntity = new EntityDTO();
 		mockEntity.setEntityDescription("Creating an entity for testing...");
 
 		// Prepare request
-		ResponseEntity<EntityModel> response = restTemplate.postForEntity(getRootUrl() + "/entities", mockEntity,
-				EntityModel.class);
+		ResponseEntity<EntityDTO> response = restTemplate.postForEntity(getRootUrl() + "/entities", mockEntity,
+				EntityDTO.class);
 
 		// Assertions
 		Assert.assertNotNull(response);
@@ -134,7 +134,7 @@ public class SpringApiRestApplicationTests {
 	public void testUpdateEntity_Found() throws JsonProcessingException {
 
 		// Prepare mock data
-		EntityModel mockEntity = new EntityModel();
+		EntityDTO mockEntity = new EntityDTO();
 		mockEntity.setEntityTitle("Entity for testing");
 		mockEntity.setEntityDescription("Updating an entity for testing...");
 
@@ -146,11 +146,11 @@ public class SpringApiRestApplicationTests {
 		HttpEntity<String> httpEntity = new HttpEntity<String>(requestBody, headers);
 
 		// Request
-		ResponseEntity<EntityModel> response = restTemplate.exchange(getRootUrl() + "/entities/2", HttpMethod.PUT,
-				httpEntity, EntityModel.class);
+		ResponseEntity<EntityDTO> response = restTemplate.exchange(getRootUrl() + "/entities/2", HttpMethod.PUT,
+				httpEntity, EntityDTO.class);
 
 		// Response
-		EntityModel updatedEntity = response.getBody();
+		EntityDTO updatedEntity = response.getBody();
 
 		// Assertions
 		Assert.assertNotNull(response);
@@ -169,7 +169,7 @@ public class SpringApiRestApplicationTests {
 	public void testUpdateEntity_NotFound() throws JsonProcessingException {
 
 		// Prepare mock data
-		EntityModel mockEntity = new EntityModel();
+		EntityDTO mockEntity = new EntityDTO();
 		mockEntity.setEntityTitle("Entity for testing");
 		mockEntity.setEntityDescription("Updating an entity for testing...");
 
@@ -181,8 +181,8 @@ public class SpringApiRestApplicationTests {
 		HttpEntity<String> httpEntity = new HttpEntity<String>(requestBody, headers);
 
 		// Request
-		ResponseEntity<EntityModel> response = restTemplate.exchange(getRootUrl() + "/entities/1000000", HttpMethod.PUT,
-				httpEntity, EntityModel.class);
+		ResponseEntity<EntityDTO> response = restTemplate.exchange(getRootUrl() + "/entities/1000000", HttpMethod.PUT,
+				httpEntity, EntityDTO.class);
 
 		// Assertions
 		Assert.assertNotNull(response);
@@ -195,7 +195,7 @@ public class SpringApiRestApplicationTests {
 	public void testUpdateEntity_WithoutMandatoryField() throws JsonProcessingException {
 
 		// Prepare mock data
-		EntityModel mockEntity = new EntityModel();
+		EntityDTO mockEntity = new EntityDTO();
 		mockEntity.setEntityTitle("");
 		mockEntity.setEntityDescription("Updating an entity for testing...");
 
@@ -207,8 +207,8 @@ public class SpringApiRestApplicationTests {
 		HttpEntity<String> httpEntity = new HttpEntity<String>(requestBody, headers);
 
 		// Request
-		ResponseEntity<EntityModel> response = restTemplate.exchange(getRootUrl() + "/entities/2", HttpMethod.PUT,
-				httpEntity, EntityModel.class);
+		ResponseEntity<EntityDTO> response = restTemplate.exchange(getRootUrl() + "/entities/2", HttpMethod.PUT,
+				httpEntity, EntityDTO.class);
 
 		// Assertions
 		Assert.assertNotNull(response);
@@ -220,11 +220,11 @@ public class SpringApiRestApplicationTests {
 	public void testDeleteEntity_Found() {
 
 		// Request
-		ResponseEntity<EntityModel> response = restTemplate.exchange(getRootUrl() + "/entities/3", HttpMethod.DELETE,
-				null, EntityModel.class);
+		ResponseEntity<EntityDTO> response = restTemplate.exchange(getRootUrl() + "/entities/3", HttpMethod.DELETE,
+				null, EntityDTO.class);
 
 		// Response
-		EntityModel deletedEntity = response.getBody();
+		EntityDTO deletedEntity = response.getBody();
 
 		// Assertions
 		Assert.assertNotNull(response);
@@ -238,8 +238,8 @@ public class SpringApiRestApplicationTests {
 	public void testDeleteEntity_NotFound() {
 
 		// Request
-		ResponseEntity<EntityModel> response = restTemplate.exchange(getRootUrl() + "/entities/1000000",
-				HttpMethod.DELETE, null, EntityModel.class);
+		ResponseEntity<EntityDTO> response = restTemplate.exchange(getRootUrl() + "/entities/1000000",
+				HttpMethod.DELETE, null, EntityDTO.class);
 
 		// Assertions
 		Assert.assertNotNull(response);
