@@ -20,24 +20,21 @@
 * Create Entity table
 
     ```
-    CREATE TABLE entity."ENTITY"
-    (
-        "ID" integer NOT NULL DEFAULT nextval('entity."ENTITY_ID_seq"'::regclass),
-        "TITLE" character varying(50) COLLATE pg_catalog."default" NOT NULL,
-        "DESCRIPTION" text COLLATE pg_catalog."default",
-        "CREATE_DATE" timestamp without time zone NOT NULL,
-        "UPDATE_DATE" timestamp without time zone,
-        "DELETE_DATE" timestamp without time zone,
-        CONSTRAINT "ENTITY_PK" PRIMARY KEY ("ID")
-    )
-    WITH (
-        OIDS = FALSE
-    )
-    TABLESPACE pg_default;
+    CREATE TABLE entity.entity
+	(
+		id bigint NOT NULL DEFAULT nextval('entity.entity_id_seq'::regclass),
+		create_date timestamp without time zone,
+		delete_date timestamp without time zone,
+		description character varying(255) COLLATE pg_catalog."default",
+		title character varying(255) COLLATE pg_catalog."default",
+		update_date timestamp without time zone,
+		CONSTRAINT entity_pkey PRIMARY KEY (id)
+	)
+	WITH (
+		OIDS = FALSE
+	)
+	TABLESPACE pg_default;
 
-    ALTER TABLE entity."ENTITY"
-        OWNER to postgres;
-    
-    COMMENT ON TABLE entity."ENTITY"
-        IS 'Main entity table';
+	ALTER TABLE entity.entity
+		OWNER to postgres;
     ```
