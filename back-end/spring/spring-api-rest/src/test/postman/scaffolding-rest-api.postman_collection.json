@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "0f1191e3-40b3-4f11-9460-8a07b80c8c4e",
+		"name": "scaffolding-rest-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/entities",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"entities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "newEntity",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"entityId\": null,\n    \"entityTitle\": \"Postman entity\",\n    \"entityDescription\": \"Created entity width Postman\",\n    \"createDate\": null,\n    \"updateDate\": null,\n    \"deleteDate\": null\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/entities",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"entities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "one",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/entities/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"entities",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "replaceEntity",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"entityId\": null,\n    \"entityTitle\": \"Postman update entity\",\n    \"entityDescription\": \"Updated entity width Postman\",\n    \"createDate\": null,\n    \"updateDate\": null,\n    \"deleteDate\": null\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/entities/13",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"entities",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteEntity",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/entities/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"entities",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
