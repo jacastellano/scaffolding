@@ -1,5 +1,7 @@
 package com.scaffolding.spring.main.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.validation.Valid;
 
@@ -16,6 +18,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.scaffolding.spring.main.domain.EntityDTO;
 import com.scaffolding.spring.main.service.EntityService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.ApiResponse;
+
+@Api(value = "Entity Controller")
 @RestController
 public class EntityController {
 
@@ -23,11 +31,15 @@ public class EntityController {
 	private EntityService service;
 
 	/**
-	 * Get an specific entity
+	 * Find entity by id
 	 * 
-	 * @param entityId
-	 * @return the entity object that it was found
+	 * @param id Entity id
+	 * @return the entity object that it was found. If no entity was found it
+	 *         returns status not found (404)
 	 */
+	@ApiOperation(value = "findEntityById", notes = "Find entity by id")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Entity found."),
+			@ApiResponse(code = 404, message = "The entity you were trying to reach is not found") })
 	@GetMapping("/entities/{id}")
 	public ResponseEntity<EntityDTO> findEntityById(@PathVariable Long id) {
 
@@ -39,12 +51,15 @@ public class EntityController {
 	}
 
 	/**
-	 * Get all entities
+	 * Find all entities
 	 * 
-	 * @return a complete list of entities
+	 * @return a complete list of entities. If no entity was found it returns an
+	 *         empty collection
 	 */
+	@ApiOperation(value = "findAllEntities", notes = "Find all entities")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Entities found.") })
 	@GetMapping("/entities")
-	public ResponseEntity<Iterable<EntityDTO>> findAllEntities() {
+	public ResponseEntity<List<EntityDTO>> findAllEntities() {
 		return new ResponseEntity<>(service.findAllEntities(), HttpStatus.OK);
 	}
 
@@ -54,6 +69,8 @@ public class EntityController {
 	 * @param entity
 	 * @return the entity object that it was created
 	 */
+	@ApiOperation(value = "createEntity", notes = "Create a new entity")
+	@ApiResponses(value = { @ApiResponse(code = 201, message = "Successfully new entity added.") })
 	@PostMapping("/entities")
 	public ResponseEntity<EntityDTO> createEntity(@Valid @RequestBody EntityDTO entity) {
 		return new ResponseEntity<>(service.createEntity(entity), HttpStatus.CREATED);
@@ -62,10 +79,14 @@ public class EntityController {
 	/**
 	 * Update an entity
 	 * 
-	 * @param entity   an entity object with new values
-	 * @param entityId
-	 * @return the entity object that it was updated
+	 * @param entity an entity object with new values
+	 * @param id     Entity id
+	 * @return the entity object that it was updated. If no entity was found it
+	 *         returns status not found (404)
 	 */
+	@ApiOperation(value = "updateEntity", notes = "Update an entity")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully update entity."),
+			@ApiResponse(code = 404, message = "The resource you were trying to update is not found") })
 	@PutMapping("/entities/{id}")
 	public ResponseEntity<EntityDTO> updateEntity(@Valid @RequestBody EntityDTO entity, @PathVariable Long id) {
 
@@ -79,8 +100,13 @@ public class EntityController {
 	/**
 	 * Delete an entity
 	 * 
-	 * @param entityId
+	 * @param id Entity id
+	 * @return the entity object that it was deleted. If no entity was found it
+	 *         returns status not found (404)
 	 */
+	@ApiOperation(value = "deleteEntity", notes = "Delete an entity")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully delete entity."),
+			@ApiResponse(code = 404, message = "The resource you were trying to delete is not found") })
 	@DeleteMapping("/entities/{id}")
 	public ResponseEntity<EntityDTO> deleteEntity(@PathVariable Long id) {
 
