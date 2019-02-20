@@ -80,13 +80,13 @@ public class EntityService {
 	 */
 	public EntityDTO deleteEntity(Long entityId) {
 
-		EntityDAO entityToSave = repository.findById(entityId).map(e -> {
+		EntityDAO entityToDelete = repository.findById(entityId).map(e -> {
 			e.setDeleteDate(new Date());
 			return e;
 
 		}).orElseGet(() -> null);
 
-		return (entityToSave != null) ? EntityMapper.convert(repository.save(entityToSave)) : null;
+		return (entityToDelete != null) ? EntityMapper.convert(repository.save(entityToDelete)) : null;
 
 	}
 

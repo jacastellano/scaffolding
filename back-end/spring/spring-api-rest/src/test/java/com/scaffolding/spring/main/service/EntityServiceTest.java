@@ -198,7 +198,10 @@ public class EntityServiceTest {
 		when(repositoryMock.findById(1L)).thenReturn(Optional.empty());
 
 		// Invoke service
-		EntityDTO entityResult = service.findEntityById(1L);
+		EntityDTO updateEntity = new EntityDTO();
+		updateEntity.setEntityTitle("title");
+		updateEntity.setEntityDescription("description");
+		EntityDTO entityResult = service.updateEntity(updateEntity, 1L);
 
 		// Assertions
 		assertNull(entityResult);
@@ -242,7 +245,7 @@ public class EntityServiceTest {
 		when(repositoryMock.findById(1L)).thenReturn(Optional.empty());
 
 		// Invoke services
-		EntityDTO entityResult = service.findEntityById(1L);
+		EntityDTO entityResult = service.deleteEntity(1L);
 
 		// Assertions
 		assertNull(entityResult);
