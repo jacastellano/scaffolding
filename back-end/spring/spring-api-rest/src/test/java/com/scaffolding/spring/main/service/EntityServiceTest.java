@@ -1,4 +1,4 @@
-package com.scaffolding.spring;
+package com.scaffolding.spring.main.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
