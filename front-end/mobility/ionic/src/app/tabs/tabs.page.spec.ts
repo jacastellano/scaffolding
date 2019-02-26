@@ -4,24 +4,23 @@ import { HttpClient, HttpHandler } from "@angular/common/http";
 
 import { TranslateModule, TranslateStore } from '@ngx-translate/core';
 
-import { HomePage } from './home.page';
+import { TabsPage } from './tabs.page';
 
-describe('HomePage', () => {
-  let component: HomePage;
-  let fixture: ComponentFixture<HomePage>;
+describe('TabsPage', () => {
+  let component: TabsPage;
+  let fixture: ComponentFixture<TabsPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HomePage],
+      declarations: [TabsPage],
       imports: [TranslateModule.forChild()],
       providers: [TranslateStore, HttpClient, HttpHandler],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomePage);
+    fixture = TestBed.createComponent(TabsPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

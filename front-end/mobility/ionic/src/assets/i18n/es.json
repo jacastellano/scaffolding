@@ -1,5 +1,14 @@
 {
-    "TITULO": "Título",
-    "CONTENIDO": "Haz de tu vida un sueño, y de tu sueño una realidad.",
-    "AUTOR": "Antoine De Saint Exupéry"
+    "TAB1.TITLE" : "Pestaña 1",
+    "TAB1.CARD.TITLE": "Pestaña 1",
+    "TAB1.CARD.SUBTITLE": "Antoine De Saint Exupéry",
+    "TAB1.CARD.CONTENT": "Haz de tu vida un sueño, y de tu sueño una realidad.",
+    
+    "TAB2.TITLE" : "Pestaña 2",
+
+    "TAB3.TITLE" : "Pestaña 3",
+
+    "TABS.TAB1.LABEL" : "Opt 1",
+    "TABS.TAB2.LABEL" : "Opt 2",
+    "TABS.TAB3.LABEL" : "Opt 3"
 }

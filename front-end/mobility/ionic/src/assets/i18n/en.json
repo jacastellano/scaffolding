@@ -1,5 +1,14 @@
 {
-    "TITULO": "Title",
-    "CONTENIDO": "Make your life a dream, and make your dream a reality.",
-    "AUTOR": "Antoine De Saint Exupéry"
+    "TAB1.TITLE" : "Tab 1",
+    "TAB1.CARD.TITLE": "Tab 1",
+    "TAB1.CARD.SUBTITLE": "Antoine De Saint Exupéry",
+    "TAB1.CARD.CONTENT": "Make your life a dream, and make your dream a reality.",
+    
+    "TAB2.TITLE" : "Tab 2",
+
+    "TAB3.TITLE" : "Tab 3",
+
+    "TABS.TAB1.LABEL" : "Tab 1",
+    "TABS.TAB2.LABEL" : "Tab 2",
+    "TABS.TAB3.LABEL" : "Tab 3"
 }
