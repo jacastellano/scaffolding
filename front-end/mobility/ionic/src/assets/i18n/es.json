@@ -4,16 +4,16 @@
     "TAB1.CARD.SUBTITLE": "Antoine De Saint Exupéry",
     "TAB1.CARD.CONTENT": "Haz de tu vida un sueño, y de tu sueño una realidad.",
     
-    "TAB2.TITLE" : "Pestaña 2",
+    "TAB2.TITLE" : "Listado de entidades",
 
     "TAB3.TITLE" : "Pestaña 3",
 
     "MENU.TITLE" : "Menú",
     "MENU.OPT1.LABEL" : "Opción 1",
-    "MENU.OPT2.LABEL" : "Opción 2",
+    "MENU.OPT2.LABEL" : "Listado de entidades",
     "MENU.OPT3.LABEL" : "Opción 3",
 
     "TABS.TAB1.LABEL" : "Opc 1",
-    "TABS.TAB2.LABEL" : "Opc 2",
+    "TABS.TAB2.LABEL" : "Listado",
     "TABS.TAB3.LABEL" : "Opc 3"
 }

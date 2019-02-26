@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { Tab2Page } from './tab2.page';
+import { EntityService } from '../services/entity.service';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { Tab2Page } from './tab2.page';
     RouterModule.forChild([{ path: '', component: Tab2Page },]),
     TranslateModule.forChild(),
   ],
+  providers: [EntityService],
   declarations: [Tab2Page]
 })
-export class Tab2PageModule {}
+export class Tab2PageModule { }

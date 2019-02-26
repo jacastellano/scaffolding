@@ -6,34 +6,11 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-item>
-    <ion-label>6</ion-label>
-    <ion-label>Entity 6</ion-label>
-    <ion-datetime value="2019-02-26T16:00Z" displayFormat="DD/MM/YYYY HH:mm" readonly="true"></ion-datetime>
-  </ion-item>
-  <ion-item>
-    <ion-label>5</ion-label>
-    <ion-label>Entity 5</ion-label>
-    <ion-datetime value="2019-02-14T16:06Z" displayFormat="DD/MM/YYYY HH:mm" readonly="true"></ion-datetime>
-  </ion-item>
-  <ion-item>
-    <ion-label>4</ion-label>
-    <ion-label>Entity 4</ion-label>
-    <ion-datetime value="2019-01-17T11:06Z" displayFormat="DD/MM/YYYY HH:mm" readonly="true"></ion-datetime>
-  </ion-item>
-  <ion-item>
-    <ion-label>3</ion-label>
-    <ion-label>Entity 3</ion-label>
-    <ion-datetime value="2019-02-26T16:00Z" displayFormat="DD/MM/YYYY HH:mm" readonly="true"></ion-datetime>
-  </ion-item>
-  <ion-item>
-    <ion-label>2</ion-label>
-    <ion-label>Entity 2</ion-label>
-    <ion-datetime value="2019-02-14T16:06Z" displayFormat="DD/MM/YYYY HH:mm" readonly="true"></ion-datetime>
-  </ion-item>
-  <ion-item>
-    <ion-label>1</ion-label>
-    <ion-label>Entity 1</ion-label>
-    <ion-datetime value="2019-01-17T11:06Z" displayFormat="DD/MM/YYYY HH:mm" readonly="true"></ion-datetime>
-  </ion-item>
+  <ion-list *ngFor="let entity of entityList">
+    <ion-item>
+      <ion-label>{{entity.entityId}}</ion-label>
+      <ion-label>{{entity.entityTitle}}</ion-label>
+      <ion-datetime value="{{entity.createDate}}" displayFormat="DD/MM/YYYY HH:mm" readonly="true"></ion-datetime>
+    </ion-item>
+  </ion-list>
 </ion-content>

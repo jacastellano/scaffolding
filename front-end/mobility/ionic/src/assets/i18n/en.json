@@ -4,16 +4,16 @@
     "TAB1.CARD.SUBTITLE": "Antoine De Saint Exupéry",
     "TAB1.CARD.CONTENT": "Make your life a dream, and make your dream a reality.",
     
-    "TAB2.TITLE" : "Tab 2",
+    "TAB2.TITLE" : "Entity list",
 
     "TAB3.TITLE" : "Tab 3",
 
     "MENU.TITLE" : "Menu",
     "MENU.OPT1.LABEL" : "Option 1",
-    "MENU.OPT2.LABEL" : "Option 2",
+    "MENU.OPT2.LABEL" : "Entity list",
     "MENU.OPT3.LABEL" : "Option 3",
 
     "TABS.TAB1.LABEL" : "Tab 1",
-    "TABS.TAB2.LABEL" : "Tab 2",
+    "TABS.TAB2.LABEL" : "List",
     "TABS.TAB3.LABEL" : "Tab 3"
 }
