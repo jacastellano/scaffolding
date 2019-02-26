@@ -8,7 +8,12 @@
 
     "TAB3.TITLE" : "Pestaña 3",
 
-    "TABS.TAB1.LABEL" : "Opt 1",
-    "TABS.TAB2.LABEL" : "Opt 2",
-    "TABS.TAB3.LABEL" : "Opt 3"
+    "MENU.TITLE" : "Menú",
+    "MENU.OPT1.LABEL" : "Opción 1",
+    "MENU.OPT2.LABEL" : "Opción 2",
+    "MENU.OPT3.LABEL" : "Opción 3",
+
+    "TABS.TAB1.LABEL" : "Opc 1",
+    "TABS.TAB2.LABEL" : "Opc 2",
+    "TABS.TAB3.LABEL" : "Opc 3"
 }

@@ -17,6 +17,12 @@ export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
+export interface Menu {
+  title: string;
+  url: string;
+  icon: string;
+}
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

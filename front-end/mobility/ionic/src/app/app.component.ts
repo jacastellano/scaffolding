@@ -6,11 +6,16 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { TranslateService } from '@ngx-translate/core';
 
+import { Menu } from './app.module';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
+
+  public appMenu: Menu[];
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -26,6 +31,7 @@ export class AppComponent {
       this.splashScreen.hide();
     });
     this.initializeLanguage();
+    this.initializeMenu();
   }
 
   initializeLanguage() {
@@ -33,5 +39,33 @@ export class AppComponent {
     this.translate.setDefaultLang('es');
     // Changes the lang currently used
     this.translate.use('es');
+  }
+
+  initializeMenu() {
+
+    this.appMenu = [
+      {title: '', url: '/tabs/tab1', icon: 'home'},
+      {title: '', url: '/tabs/tab2', icon: 'list'},
+      {title: '', url: '/tabs/tab3', icon: 'print'},
+    ];
+
+    this.translate.get('MENU.OPT1.LABEL').subscribe(
+      (res: string) => {
+        this.appMenu[0].title = res;
+      }
+    );
+
+    this.translate.get('MENU.OPT2.LABEL').subscribe(
+      (res: string) => {
+        this.appMenu[1].title = res;
+      }
+    );
+
+    this.translate.get('MENU.OPT3.LABEL').subscribe(
+      (res: string) => {
+        this.appMenu[2].title = res;
+      }
+    );
+
   }
 }
