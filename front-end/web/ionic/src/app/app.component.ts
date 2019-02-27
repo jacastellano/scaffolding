@@ -45,6 +45,7 @@ export class AppComponent {
     this.appMenu = [
       {title: '', url: '/home', icon: 'home'},
       {title: '', url: '/list', icon: 'list'},
+      {title: '', url: '/geolocation', icon: 'locate'},
       {title: '', url: '/about-us', icon: 'contact'},
     ];
 
@@ -63,6 +64,12 @@ export class AppComponent {
     this.translate.get('MENU.OPT3.LABEL').subscribe(
       (res: string) => {
         this.appMenu[2].title = res;
+      }
+    );
+
+    this.translate.get('MENU.OPT4.LABEL').subscribe(
+      (res: string) => {
+        this.appMenu[3].title = res;
       }
     );
 

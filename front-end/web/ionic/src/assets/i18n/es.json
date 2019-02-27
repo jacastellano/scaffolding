@@ -9,10 +9,17 @@
     "LIST.CARD.SUBTITLE": "Listado de entidades completo",
     "LIST.SCROLL.LABEL": "Cargando más datos...",
 
+    "GEOLOCATION.TITLE" : "Geolocalización",
+    "GEOLOCATION.CARD.TITLE": "Geolocalización",
+    "GEOLOCATION.CARD.SUBTITLE": "Geolocalización actual",
+    "GEOLOCATION.CARD.LABEL.LATITUDE": "Latitud",
+    "GEOLOCATION.CARD.LABEL.LONGITUDE": "Longitud",
+
     "ABOUTUS.TITLE" : "Sobre nosotros",
 
     "MENU.TITLE" : "Menú",
     "MENU.OPT1.LABEL" : "Inicio",
     "MENU.OPT2.LABEL" : "Listado de entidades",
-    "MENU.OPT3.LABEL" : "Sobre nosotros"
+    "MENU.OPT3.LABEL" : "Geolocalización",
+    "MENU.OPT4.LABEL" : "Sobre nosotros"
 }

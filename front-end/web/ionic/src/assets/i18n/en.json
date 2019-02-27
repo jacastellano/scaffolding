@@ -9,10 +9,17 @@
     "LIST.CARD.SUBTITLE": "Complete entity list",
     "LIST.SCROLL.LABEL": "Loading more data...",
 
+    "GEOLOCATION.TITLE" : "Geolocation",
+    "GEOLOCATION.CARD.TITLE": "Geolocation",
+    "GEOLOCATION.CARD.SUBTITLE": "Current geolocation",
+    "GEOLOCATION.CARD.LABEL.LATITUDE": "Latitude",
+    "GEOLOCATION.CARD.LABEL.LONGITUDE": "Longitude",
+
     "ABOUTUS.TITLE" : "Abous us",
 
     "MENU.TITLE" : "Menu",
     "MENU.OPT1.LABEL" : "Home",
     "MENU.OPT2.LABEL" : "Entity list",
-    "MENU.OPT3.LABEL" : "About us"
+    "MENU.OPT3.LABEL" : "Geolocation",
+    "MENU.OPT4.LABEL" : "About us"
 }
