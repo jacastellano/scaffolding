@@ -1,5 +1,15 @@
 {
-    "TITULO": "Título",
-    "CONTENIDO": "Haz de tu vida un sueño, y de tu sueño una realidad.",
-    "AUTOR": "Antoine De Saint Exupéry"
+    "HOME.TITLE" : "Inicio",
+    "HOME.CARD.TITLE": "Inicio",
+    "HOME.CARD.SUBTITLE": "Antoine De Saint Exupéry",
+    "HOME.CARD.CONTENT": "Haz de tu vida un sueño, y de tu sueño una realidad.",
+    
+    "LIST.TITLE" : "Listado de entidades",
+
+    "ABOUTUS.TITLE" : "Sobre nosotros",
+
+    "MENU.TITLE" : "Menú",
+    "MENU.OPT1.LABEL" : "Inicio",
+    "MENU.OPT2.LABEL" : "Listado de entidades",
+    "MENU.OPT3.LABEL" : "Sobre nosotros"
 }

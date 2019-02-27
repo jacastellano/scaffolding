@@ -1,12 +1,23 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>
-      {{ 'TITULO' | translate }}
+      {{ 'HOME.TITLE' | translate }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  {{ 'CONTENIDO' | translate }}
-  <p>{{ 'AUTOR' | translate }}</p>
+<ion-content>
+  <ion-card class="">
+    <ion-img src="/assets/shapes.svg"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>{{ 'HOME.CARD.SUBTITLE' | translate }}</ion-card-subtitle>
+      <ion-card-title>{{ 'HOME.CARD.TITLE' | translate }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ 'HOME.CARD.CONTENT' | translate }}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

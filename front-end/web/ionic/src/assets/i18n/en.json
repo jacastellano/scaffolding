@@ -1,5 +1,15 @@
 {
-    "TITULO": "Title",
-    "CONTENIDO": "Make your life a dream, and make your dream a reality.",
-    "AUTOR": "Antoine De Saint Exupéry"
+    "HOME.TITLE" : "Home",
+    "HOME.CARD.TITLE": "Home",
+    "HOME.CARD.SUBTITLE": "Antoine De Saint Exupéry",
+    "HOME.CARD.CONTENT": "Make your life a dream, and make your dream a reality.",
+    
+    "LIST.TITLE" : "Entity list",
+
+    "ABOUTUS.TITLE" : "Abous us",
+
+    "MENU.TITLE" : "Menu",
+    "MENU.OPT1.LABEL" : "Home",
+    "MENU.OPT2.LABEL" : "Entity list",
+    "MENU.OPT3.LABEL" : "About us"
 }
