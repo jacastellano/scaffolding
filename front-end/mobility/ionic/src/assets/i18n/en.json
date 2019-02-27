@@ -6,14 +6,18 @@
     
     "TAB2.TITLE" : "Entity list",
 
-    "TAB3.TITLE" : "Tab 3",
+    "TAB3.TITLE" : "Geolocation",
+    "TAB3.CARD.TITLE" : "Geolocation",
+    "TAB3.CARD.SUBTITLE" : "Current geolocation",
+    "TAB3.CARD.LABEL.LATITUDE" : "Latitude",
+    "TAB3.CARD.LABEL.LONGITUDE" : "Longitude",
 
     "MENU.TITLE" : "Menu",
     "MENU.OPT1.LABEL" : "Option 1",
     "MENU.OPT2.LABEL" : "Entity list",
-    "MENU.OPT3.LABEL" : "Option 3",
+    "MENU.OPT3.LABEL" : "Geolocation",
 
     "TABS.TAB1.LABEL" : "Tab 1",
     "TABS.TAB2.LABEL" : "List",
-    "TABS.TAB3.LABEL" : "Tab 3"
+    "TABS.TAB3.LABEL" : "Geolocation"
 }

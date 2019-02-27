@@ -6,14 +6,18 @@
     
     "TAB2.TITLE" : "Listado de entidades",
 
-    "TAB3.TITLE" : "Pestaña 3",
+    "TAB3.TITLE" : "Geolocalización",
+    "TAB3.CARD.TITLE" : "Geolocalización",
+    "TAB3.CARD.SUBTITLE" : "Geolocalización actual",
+    "TAB3.CARD.LABEL.LATITUDE" : "Latitud",
+    "TAB3.CARD.LABEL.LONGITUDE" : "Longitud",
 
     "MENU.TITLE" : "Menú",
     "MENU.OPT1.LABEL" : "Opción 1",
     "MENU.OPT2.LABEL" : "Listado de entidades",
-    "MENU.OPT3.LABEL" : "Opción 3",
+    "MENU.OPT3.LABEL" : "Geolocalización",
 
     "TABS.TAB1.LABEL" : "Opc 1",
     "TABS.TAB2.LABEL" : "Listado",
-    "TABS.TAB3.LABEL" : "Opc 3"
+    "TABS.TAB3.LABEL" : "Geolocalización"
 }
