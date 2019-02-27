@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonInfiniteScroll } from '@ionic/angular';
 
 import { Entity } from '../models/entity.model';
 import { EntityService } from '../services/entity.service';
+
+const INITIAL_LIST_SIZE: number = 12;
+const INCREMENT: number = 5;
 
 @Component({
   selector: 'app-tab2',
@@ -10,11 +14,31 @@ import { EntityService } from '../services/entity.service';
 })
 export class Tab2Page implements OnInit {
 
-  public entityList: Entity[];
+  public completeEntityList: Entity[];
+  public displayedEntityList: Entity[];
+  public lastIndexDisplayed: number = INITIAL_LIST_SIZE;
 
   constructor(private service: EntityService) { }
 
-  ngOnInit(): void {
-    this.entityList = this.service.findAllEntities();
+  loadData(event) {
+    setTimeout(() => {
+      event.target.complete();
+      if (this.displayedEntityList.length >= this.completeEntityList.length) {
+        event.target.disabled = true;
+      } else {
+        this.loadMoreEntities(INCREMENT);
+      }
+    }, 500);
   }
+
+  loadMoreEntities(n: number) {
+    const currentSize = (this.displayedEntityList) ? this.displayedEntityList.length : 0;
+    this.displayedEntityList = this.completeEntityList.filter((value, index) => index < currentSize + n);
+  }
+
+  ngOnInit() {
+    this.completeEntityList = this.service.findAllEntities();
+    this.loadMoreEntities(INITIAL_LIST_SIZE);
+  }
+
 }
