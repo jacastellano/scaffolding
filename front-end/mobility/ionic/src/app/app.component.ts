@@ -44,9 +44,9 @@ export class AppComponent {
   initializeMenu() {
 
     this.appMenu = [
-      {title: '', url: '/tabs/tab1', icon: 'home'},
-      {title: '', url: '/tabs/tab2', icon: 'list'},
-      {title: '', url: '/tabs/tab3', icon: 'locate'},
+      { title: '', url: '/tabs/tab1', icon: 'home' },
+      { title: '', url: '/tabs/tab2', icon: 'list' },
+      { title: '', url: '/tabs/tab3', icon: 'locate' },
     ];
 
     this.translate.get('MENU.OPT1.LABEL').subscribe(
