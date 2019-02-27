@@ -17,7 +17,7 @@ export class ListPage implements OnInit {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
   public completeEntityList: Entity[];
-  public displayedEntityList: Entity[] = [];
+  public displayedEntityList: Entity[];
   public lastIndexDisplayed: number = INITIAL_LIST_SIZE;
 
   constructor(private service: EntityService) { }
@@ -34,7 +34,7 @@ export class ListPage implements OnInit {
   }
 
   loadMoreEntities(n: number) {
-    const currentSize = this.displayedEntityList.length;
+    const currentSize = (this.displayedEntityList) ? this.displayedEntityList.length : 0;
     this.displayedEntityList = this.completeEntityList.filter((value, index) => index < currentSize + n);
   }
 
