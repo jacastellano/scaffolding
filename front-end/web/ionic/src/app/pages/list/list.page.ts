@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Entity } from 'src/app/models/entity.model';
+import { EntityService } from 'src/app/services/entity.service';
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.page.html',
@@ -7,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPage implements OnInit {
 
-  constructor() { }
+  public entityList: Entity[];
+
+  constructor(private service: EntityService) { }
 
   ngOnInit() {
+    this.entityList = this.service.findAllEntities();
   }
 
 }

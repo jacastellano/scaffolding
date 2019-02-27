@@ -8,6 +8,7 @@ import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 
 import { ListPage } from './list.page';
+import { EntityService } from '../../services/entity.service';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     TranslateModule.forChild(),
   ],
+  providers: [EntityService],
   declarations: [ListPage]
 })
-export class ListPageModule {}
+export class ListPageModule { }

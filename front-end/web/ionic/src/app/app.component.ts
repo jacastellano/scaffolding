@@ -37,7 +37,7 @@ export class AppComponent {
     // Sets the default language to use as a fallback
     this.translate.setDefaultLang('es');
     // Changes the lang currently used
-    this.translate.use('en');
+    this.translate.use('es');
   }
 
   initializeMenu() {

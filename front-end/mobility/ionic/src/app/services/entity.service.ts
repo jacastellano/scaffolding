@@ -38,7 +38,7 @@ const ENTITIES: Entity[] = [
     createDate: new Date().toISOString(),
     updateDate: new Date().toISOString(),
   }
-]
+];
 
 @Injectable({
   providedIn: 'root'

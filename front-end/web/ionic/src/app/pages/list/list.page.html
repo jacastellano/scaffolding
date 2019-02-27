@@ -8,5 +8,21 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content></ion-content>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>{{ 'LIST.CARD.SUBTITLE' | translate }}</ion-card-subtitle>
+      <ion-card-title>{{ 'LIST.CARD.TITLE' | translate }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list *ngFor="let entity of entityList">
+        <ion-item>
+          <ion-label>{{entity.entityId}}</ion-label>
+          <ion-label>{{entity.entityTitle}}</ion-label>
+          <ion-label>{{entity.entityDescription}}</ion-label>
+          <ion-datetime value="{{entity.createDate}}" displayFormat="DD/MM/YYYY HH:mm" readonly="true"></ion-datetime>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
