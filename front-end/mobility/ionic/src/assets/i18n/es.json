@@ -13,11 +13,11 @@
     "TAB3.CARD.LABEL.LONGITUDE" : "Longitud",
 
     "MENU.TITLE" : "Menú",
-    "MENU.OPT1.LABEL" : "Opción 1",
+    "MENU.OPT1.LABEL" : "Inicio",
     "MENU.OPT2.LABEL" : "Listado de entidades",
     "MENU.OPT3.LABEL" : "Geolocalización",
 
-    "TABS.TAB1.LABEL" : "Opc 1",
+    "TABS.TAB1.LABEL" : "Inicio",
     "TABS.TAB2.LABEL" : "Listado",
     "TABS.TAB3.LABEL" : "Geolocalización"
 }
