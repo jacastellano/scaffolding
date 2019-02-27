@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonInfiniteScroll } from '@ionic/angular';
 
 import { Entity } from 'src/app/models/entity.model';
 import { EntityService } from 'src/app/services/entity.service';
+
+const INITIAL_LIST_SIZE: number = 15;
+const INCREMENT: number = 5;
 
 @Component({
   selector: 'app-list',
@@ -10,12 +14,33 @@ import { EntityService } from 'src/app/services/entity.service';
 })
 export class ListPage implements OnInit {
 
-  public entityList: Entity[];
+  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
+
+  public completeEntityList: Entity[];
+  public displayedEntityList: Entity[] = [];
+  public lastIndexDisplayed: number = INITIAL_LIST_SIZE;
 
   constructor(private service: EntityService) { }
 
+  loadData(event) {
+    setTimeout(() => {
+      event.target.complete();
+      if (this.displayedEntityList.length >= this.completeEntityList.length) {
+        event.target.disabled = true;
+      } else {
+        this.loadMoreEntities(INCREMENT);
+      }
+    }, 500);
+  }
+
+  loadMoreEntities(n: number) {
+    const currentSize = this.displayedEntityList.length;
+    this.displayedEntityList = this.completeEntityList.filter((value, index) => index < currentSize + n);
+  }
+
   ngOnInit() {
-    this.entityList = this.service.findAllEntities();
+    this.completeEntityList = this.service.findAllEntities();
+    this.loadMoreEntities(INITIAL_LIST_SIZE);
   }
 
 }

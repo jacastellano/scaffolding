@@ -15,7 +15,7 @@
       <ion-card-title>{{ 'LIST.CARD.TITLE' | translate }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-list *ngFor="let entity of entityList">
+      <ion-list *ngFor="let entity of displayedEntityList">
         <ion-item>
           <ion-label>{{entity.entityId}}</ion-label>
           <ion-label>{{entity.entityTitle}}</ion-label>
@@ -23,6 +23,10 @@
           <ion-datetime value="{{entity.createDate}}" displayFormat="DD/MM/YYYY HH:mm" readonly="true"></ion-datetime>
         </ion-item>
       </ion-list>
+      <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="{{ 'LIST.SCROLL.LABEL' | translate }}">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>
     </ion-card-content>
   </ion-card>
 </ion-content>
