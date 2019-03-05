@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,6 +41,7 @@ public class EntityController {
 	@ApiOperation(value = "findEntityById", notes = "Find entity by id")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Entity found."),
 			@ApiResponse(code = 404, message = "The entity you were trying to reach is not found") })
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/entities/{id}")
 	public ResponseEntity<EntityDTO> findEntityById(@PathVariable Long id) {
 
@@ -58,6 +60,7 @@ public class EntityController {
 	 */
 	@ApiOperation(value = "findAllEntities", notes = "Find all entities")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Entities found.") })
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/entities")
 	public ResponseEntity<List<EntityDTO>> findAllEntities() {
 		return new ResponseEntity<>(service.findAllEntities(), HttpStatus.OK);
@@ -71,6 +74,7 @@ public class EntityController {
 	 */
 	@ApiOperation(value = "createEntity", notes = "Create a new entity")
 	@ApiResponses(value = { @ApiResponse(code = 201, message = "Successfully new entity added.") })
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/entities")
 	public ResponseEntity<EntityDTO> createEntity(@Valid @RequestBody EntityDTO entity) {
 		return new ResponseEntity<>(service.createEntity(entity), HttpStatus.CREATED);
@@ -87,6 +91,7 @@ public class EntityController {
 	@ApiOperation(value = "updateEntity", notes = "Update an entity")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully update entity."),
 			@ApiResponse(code = 404, message = "The resource you were trying to update is not found") })
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PutMapping("/entities/{id}")
 	public ResponseEntity<EntityDTO> updateEntity(@Valid @RequestBody EntityDTO entity, @PathVariable Long id) {
 
@@ -107,6 +112,7 @@ public class EntityController {
 	@ApiOperation(value = "deleteEntity", notes = "Delete an entity")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully delete entity."),
 			@ApiResponse(code = 404, message = "The resource you were trying to delete is not found") })
+	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping("/entities/{id}")
 	public ResponseEntity<EntityDTO> deleteEntity(@PathVariable Long id) {
 
