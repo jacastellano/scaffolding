@@ -38,9 +38,34 @@ export class ListPage implements OnInit {
     this.displayedEntityList = this.completeEntityList.filter((value, index) => index < currentSize + n);
   }
 
+  convertToEntity(data: any): Entity {
+
+    const createDate = new Date(data.createDate);
+    const updateDate = new Date(data.updateDate);
+
+    const entity: Entity = {
+      ...data,
+      createDate: createDate.toISOString(),
+      updateDate: updateDate.toISOString(),
+    };
+
+    return entity;
+  }
+
   ngOnInit() {
-    this.completeEntityList = this.service.findAllEntities();
-    this.loadMoreEntities(INITIAL_LIST_SIZE);
+
+    this.completeEntityList = [];
+
+    this.service.findAllEntities()
+      .subscribe((data: Entity[]) => {
+        data.forEach((element) => {
+          const entity: Entity = this.convertToEntity(element);
+          this.completeEntityList.push(entity);
+        });
+
+        // load data
+        this.loadMoreEntities(INITIAL_LIST_SIZE);
+      });
   }
 
 }
