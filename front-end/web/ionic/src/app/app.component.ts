@@ -1,9 +1,5 @@
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-
 import { TranslateService } from '@ngx-translate/core';
 import { Menu } from './app.module';
 
@@ -16,9 +12,6 @@ export class AppComponent {
   public appMenu: Menu[];
 
   constructor(
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
     private translate: TranslateService
   ) {
     this.initializeApp();
@@ -39,10 +32,10 @@ export class AppComponent {
   initializeMenu() {
 
     this.appMenu = [
-      {title: '', url: '/home', icon: 'home'},
-      {title: '', url: '/list', icon: 'list'},
-      {title: '', url: '/geolocation', icon: 'locate'},
-      {title: '', url: '/about-us', icon: 'contact'},
+      { title: '', url: '/home', icon: 'home' },
+      { title: '', url: '/list', icon: 'list' },
+      { title: '', url: '/geolocation', icon: 'locate' },
+      { title: '', url: '/about-us', icon: 'contact' },
     ];
 
     this.translate.get('MENU.OPT1.LABEL').subscribe(
