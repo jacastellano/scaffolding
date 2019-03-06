@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Entity } from '../models/entity.model';
 
+const ENTITY_SERVICE_URL = '"http://localhost:8080';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,24 +14,24 @@ export class EntityService {
 
   constructor(private http: HttpClient) { }
 
-  findEntityById(id: number): Entity {
-    throw new Error("Method not implemented.");
+  findEntityById(id: number) {
+    return this.http.get(ENTITY_SERVICE_URL + '/entities/' + id);
   }
 
   findAllEntities() {
-    return this.http.get("http://localhost:8080/entities");
+    return this.http.get(ENTITY_SERVICE_URL + '/entities');
   }
 
-  createEntity(entity: Entity): number {
-    throw new Error("Method not implemented.");
+  createEntity(entity: Entity) {
+    return this.http.post(ENTITY_SERVICE_URL + '/entities', entity);
   }
 
   updateEntity(entity: Entity, id: number) {
-    throw new Error("Method not implemented.");
+    return this.http.put(ENTITY_SERVICE_URL + '/entities/' + id, entity);
   }
 
   deleteEntity(id: number) {
-    throw new Error("Method not implemented.");
+    return this.http.delete(ENTITY_SERVICE_URL + '/entities/' + id);
   }
 
 }
