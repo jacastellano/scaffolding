@@ -57,15 +57,23 @@ export class ListPage implements OnInit {
     this.completeEntityList = [];
 
     this.service.findAllEntities()
-      .subscribe((data: Entity[]) => {
-        data.forEach((element) => {
-          const entity: Entity = this.convertToEntity(element);
-          this.completeEntityList.push(entity);
+      .subscribe(
+
+        (response) => {
+
+          const data = response.body;
+          data.forEach((element) => {
+            const entity: Entity = this.convertToEntity(element);
+            this.completeEntityList.push(entity);
+          });
+          // load data
+          this.loadMoreEntities(INITIAL_LIST_SIZE);
+        },
+
+        (error) => {
+          console.log(error);
         });
 
-        // load data
-        this.loadMoreEntities(INITIAL_LIST_SIZE);
-      });
   }
 
 }
