@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'list', loadChildren: './pages/list/list.module#ListPageModule' },
   { path: 'about-us', loadChildren: './pages/about-us/about-us.module#AboutUsPageModule' },
   { path: 'geolocation', loadChildren: './pages/geolocation/geolocation.module#GeolocationPageModule' },
+  { path: 'detail', loadChildren: './pages/detail/detail.module#DetailPageModule' },
 ];
 
 @NgModule({
