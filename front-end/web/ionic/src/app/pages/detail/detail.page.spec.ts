@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClient, HttpHandler } from "@angular/common/http";
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { TranslateModule, TranslateStore } from '@ngx-translate/core';
 
@@ -13,7 +14,10 @@ describe('DetailPage', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [DetailPage],
-      imports: [TranslateModule.forChild()],
+      imports: [
+        TranslateModule.forChild(),
+        ReactiveFormsModule,
+      ],
       providers: [TranslateStore, HttpClient, HttpHandler],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })

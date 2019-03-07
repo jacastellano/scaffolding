@@ -18,6 +18,18 @@
     "ABOUTUS.TITLE" : "Sobre nosotros",
 
     "DETAIL.TITLE" : "Detalle",
+    "DETAIL.CARD.TITLE.NEW" : "Nueva entidad",
+    "DETAIL.CARD.TITLE.EDIT" : "Entidad {{entityId}}",
+    "DETAIL.FORM.TITLE" : "Título",
+    "DETAIL.FORM.TITLE.PLACEHOLDER": "Introduzca el titulo de la entidad",
+    "DETAIL.FORM.TITLE.VALIDATION.REQUIRED" : "Título Requerido",
+    "DETAIL.FORM.DESCRIPTION" : "Descripción",
+    "DETAIL.FORM.DESCRIPTION.PLACEHOLDER" : "Introduzca la descripción de la entidad",
+    "DETAIL.FORM.CREATEDATE" : "Fecha de alta",
+    "DETAIL.FORM.UPDATEDATE" : "Fecha de actualización",
+    "DETAIL.FORM.CREATE" : "Crear",
+    "DETAIL.FORM.SAVE" : "Guardar",
+    "DETAIL.FORM.CLOSE" : "Cerrar",
 
     "MENU.TITLE" : "Menú",
     "MENU.OPT1.LABEL" : "Inicio",

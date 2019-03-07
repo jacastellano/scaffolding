@@ -8,7 +8,90 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content padding>
-
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <div *ngIf="formMode==='CREATE'">
+        <ion-card-title>{{ 'DETAIL.CARD.TITLE.NEW' | translate }}</ion-card-title>
+      </div>
+      <div *ngIf="formMode==='EDIT' || formMode==='VIEW'">
+        <ion-card-title>{{ 'DETAIL.CARD.TITLE.EDIT' | translate:{entityId: entity.entityId} }}</ion-card-title>
+      </div>
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="entityForm" (ngSubmit)="onSubmit()">
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label>{{ 'DETAIL.FORM.TITLE' | translate }}:</ion-label>
+              <ion-input type="text" formControlName="title"
+                placeholder="{{ 'DETAIL.FORM.TITLE.PLACEHOLDER' | translate }}" [readonly]="formMode==='VIEW'">
+              </ion-input>
+              <div *ngIf="f.title.touched && f.title.errors && f.title.errors.required">
+                <ion-note color="danger">{{ 'DETAIL.FORM.TITLE.VALIDATION.REQUIRED' | translate }}</ion-note>
+              </div>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label>{{ 'DETAIL.FORM.DESCRIPTION' | translate }}:</ion-label>
+              <ion-input type="text" formControlName="description"
+                placeholder="{{ 'DETAIL.FORM.DESCRIPTION.PLACEHOLDER' | translate }}" [readonly]="formMode==='VIEW'">
+              </ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <div *ngIf="formMode==='EDIT' || formMode==='VIEW' ">
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label>{{ 'DETAIL.FORM.CREATEDATE' | translate }}:</ion-label>
+                <ion-datetime formControlName="createDate" display-format="DD/MM/YYYY HH:mm" readonly></ion-datetime>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label>{{ 'DETAIL.FORM.UPDATEDATE' | translate }}:</ion-label>
+                <ion-datetime formControlName="updateDate" display-format="DD/MM/YYYY HH:mm" readonly></ion-datetime>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div *ngIf="formMode==='CREATE' ">
+          <ion-row>
+            <ion-col>
+              <ion-item lines="none">
+                <ion-button type="submit" [disabled]="f.title.errors" slot="end" padding-start padding-end>
+                  {{ 'DETAIL.FORM.CREATE' | translate }}
+                </ion-button>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div *ngIf="formMode==='EDIT'">
+          <ion-row>
+            <ion-col>
+              <ion-item lines="none">
+                <ion-button type="submit" [disabled]="f.title.errors" slot="end" padding-start padding-end>
+                  {{ 'DETAIL.FORM.SAVE' | translate }}
+                </ion-button>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </div>
+        <div *ngIf="formMode==='VIEW'">
+          <ion-row>
+            <ion-col>
+              <ion-item lines="none">
+                <ion-button type="submit" slot="end" padding-start padding-end>{{ 'DETAIL.FORM.CLOSE' | translate }}
+                </ion-button>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </div>
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

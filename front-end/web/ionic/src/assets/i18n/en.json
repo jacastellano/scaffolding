@@ -17,7 +17,19 @@
 
     "ABOUTUS.TITLE" : "Abous us",
 
-    "DETAIL.TITLE" : "Detail",
+    "DETAIL.TITLE" : "Detalle",
+    "DETAIL.CARD.TITLE.NEW" : "New Entity",
+    "DETAIL.CARD.TITLE.EDIT" : "Entity {{entityId}}",
+    "DETAIL.FORM.TITLE" : "Title",
+    "DETAIL.FORM.TITLE.PLACEHOLDER": "Introduce entity title",
+    "DETAIL.FORM.TITLE.VALIDATION.REQUIRED" : "Title Required",
+    "DETAIL.FORM.DESCRIPTION" : "Description",
+    "DETAIL.FORM.DESCRIPTION.PLACEHOLDER" : "Introduce entity description",
+    "DETAIL.FORM.CREATEDATE" : "Create date",
+    "DETAIL.FORM.UPDATEDATE" : "Update date",
+    "DETAIL.FORM.CREATE" : "Create",
+    "DETAIL.FORM.SAVE" : "Save",
+    "DETAIL.FORM.CLOSE" : "Close",
 
     "MENU.TITLE" : "Menu",
     "MENU.OPT1.LABEL" : "Home",
