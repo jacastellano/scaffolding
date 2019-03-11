@@ -14,8 +14,8 @@
       <div *ngIf="formMode==='CREATE'">
         <ion-card-title>{{ 'DETAIL.CARD.TITLE.NEW' | translate }}</ion-card-title>
       </div>
-      <div *ngIf="formMode==='EDIT' || formMode==='VIEW'">
-        <ion-card-title>{{ 'DETAIL.CARD.TITLE.EDIT' | translate:{entityId: entity.entityId} }}</ion-card-title>
+      <div *ngIf="formMode==='EDIT'">
+        <ion-card-title>{{ 'DETAIL.CARD.TITLE.EDIT' | translate:{entityId: entityId} }}</ion-card-title>
       </div>
     </ion-card-header>
     <ion-card-content>
@@ -43,7 +43,7 @@
             </ion-item>
           </ion-col>
         </ion-row>
-        <div *ngIf="formMode==='EDIT' || formMode==='VIEW' ">
+        <div *ngIf="formMode==='EDIT'">
           <ion-row>
             <ion-col>
               <ion-item>
@@ -59,7 +59,7 @@
             </ion-col>
           </ion-row>
         </div>
-        <div *ngIf="formMode==='CREATE' ">
+        <div *ngIf="formMode==='CREATE'">
           <ion-row>
             <ion-col>
               <ion-item lines="none">
@@ -76,16 +76,6 @@
               <ion-item lines="none">
                 <ion-button type="submit" [disabled]="f.title.errors" slot="end" padding-start padding-end>
                   {{ 'DETAIL.FORM.SAVE' | translate }}
-                </ion-button>
-              </ion-item>
-            </ion-col>
-          </ion-row>
-        </div>
-        <div *ngIf="formMode==='VIEW'">
-          <ion-row>
-            <ion-col>
-              <ion-item lines="none">
-                <ion-button type="submit" slot="end" padding-start padding-end>{{ 'DETAIL.FORM.CLOSE' | translate }}
                 </ion-button>
               </ion-item>
             </ion-col>

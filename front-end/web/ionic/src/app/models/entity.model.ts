@@ -1,5 +1,5 @@
 export interface Entity {
-    entityId?: number;
+    entityId?: string;
     entityTitle: string;
     entityDescription?: string;
     createDate?: String;

@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonInfiniteScroll } from '@ionic/angular';
 
 import { Entity } from 'src/app/models/entity.model';
@@ -20,7 +21,9 @@ export class ListPage implements OnInit {
   public displayedEntityList: Entity[];
   public lastIndexDisplayed: number = INITIAL_LIST_SIZE;
 
-  constructor(private service: EntityService) { }
+  constructor(
+    private service: EntityService,
+    private router: Router) { }
 
   loadData(event) {
     setTimeout(() => {
@@ -50,6 +53,14 @@ export class ListPage implements OnInit {
     };
 
     return entity;
+  }
+
+  addEntity() {
+    this.router.navigate(['/list/new'])
+  }
+
+  editEntity(id: number) {
+    this.router.navigateByUrl(this.router.url + '/' + id);
   }
 
   ngOnInit() {

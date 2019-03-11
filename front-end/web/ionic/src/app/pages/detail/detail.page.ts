@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+
 import { Entity } from 'src/app/models/entity.model';
+import { EntityService } from '../../services/entity.service';
 
 @Component({
   selector: 'app-detail',
@@ -9,51 +12,114 @@ import { Entity } from 'src/app/models/entity.model';
 })
 export class DetailPage implements OnInit {
 
-  entityForm: FormGroup;
+  entityId: string;
   formMode: string;
-  entity: Entity;
+  entityForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private service: EntityService) { }
 
   get f() { return this.entityForm.controls; }
 
   onSubmit() {
-    
     if (this.entityForm.invalid) {
       return;
     }
-
-    if (this.formMode==="CREATE") {
-      console.log('CREATE ENTITY:\n\n' + JSON.stringify(this.entityForm.value));
-    } else if (this.formMode==="EDIT") {
-      console.log('EDIT ENTITY:\n\n' + JSON.stringify(this.entityForm.value));
-    } else if (this.formMode==="VIEW") {
-      console.log('CLOSE');
+    if (this.formMode === 'CREATE') {
+      this.createEntity(this.entityForm.value);
+    } else {
+      this.updateEntity(this.entityForm.value);
     }
+  }
+
+  createEntity(formValue: any) {
+
+    const newEntity: Entity = {
+      entityTitle: formValue.title,
+      entityDescription: formValue.description,
+    };
+
+    this.service.createEntity(newEntity)
+      .subscribe(
+        (response) => {
+          const data = response.body;
+          console.log('createEntity:OK');
+        },
+        (error) => {
+          console.log('createEntity:ERROR: ' + error);
+        });
+  }
+
+  updateEntity(formValue: any) {
+
+    const updatedEntity: Entity = {
+      entityTitle: formValue.title,
+      entityDescription: formValue.description,
+    };
+
+    this.service.updateEntity(updatedEntity, this.entityId)
+      .subscribe(
+        (response) => {
+          const data = response.body;
+          console.log('updateEntity:OK');
+        },
+        (error) => {
+          console.log('createEntity:ERROR: ' + error);
+        });
   }
 
   ngOnInit(): void {
 
-    this.formMode = "CREATE";
-    /*this.entity = {
-      entityId: 2,
-      entityTitle: 'Ionic Entity',
-      entityDescription: 'Ionic Entity to testing',
-      createDate: new Date().toISOString(),
-      updateDate: new Date().toISOString(),
-    };*/
+    this.entityId = this.route.snapshot.paramMap.get('id');
 
     this.entityForm = this.formBuilder.group({
-      entityId: this.entity ? this.entity.entityId : '',
-      title: [this.entity ? this.entity.entityTitle : '', Validators.required],
-      description: this.entity ? this.entity.entityDescription : '',
-      createDate: this.entity ? this.entity.createDate : '',
-      updateDate: this.entity ? this.entity.updateDate : '',
+      entityId: '',
+      title: ['', Validators.required],
+      description: '',
+      createDate: '',
+      updateDate: '',
     });
+
+    if (!this.entityId) {
+      this.formMode = 'CREATE';
+    } else {
+      this.formMode = 'EDIT';
+    }
+
+    if (this.formMode === 'EDIT') {
+      this.service.findEntityById(this.entityId)
+        .subscribe(
+          (response) => {
+            const data: Entity = this.convertToEntity(response.body);
+            this.entityForm.setValue({
+              entityId: data.entityId,
+              title: data.entityTitle,
+              description: data.entityDescription,
+              createDate: data.createDate,
+              updateDate: data.updateDate
+            });
+          },
+          (error) => {
+            console.log('findEntityById:ERROR: ' + error);
+          });
+    }
+
   }
 
-  onBlur() {
-    console.log('onblur');
+  convertToEntity(data: any): Entity {
+
+    const createDate = new Date(data.createDate);
+    const updateDate = new Date(data.updateDate ? data.updateDate : data.createDate);
+
+    const entity: Entity = {
+      ...data,
+      createDate: createDate.toISOString(),
+      updateDate: updateDate.toISOString(),
+    };
+
+    return entity;
   }
 
 }

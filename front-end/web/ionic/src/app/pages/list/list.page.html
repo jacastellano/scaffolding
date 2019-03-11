@@ -14,9 +14,14 @@
       <ion-card-subtitle>{{ 'LIST.CARD.SUBTITLE' | translate }}</ion-card-subtitle>
       <ion-card-title>{{ 'LIST.CARD.TITLE' | translate }}</ion-card-title>
     </ion-card-header>
+    <ion-item lines="none">
+      <ion-button slot="end" (click)="addEntity()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-item>
     <ion-card-content>
       <ion-list *ngFor="let entity of displayedEntityList">
-        <ion-item>
+        <ion-item (click)="editEntity(entity.entityId)" button="true">
           <ion-label>{{entity.entityId}}</ion-label>
           <ion-label>{{entity.entityTitle}}</ion-label>
           <ion-label>{{entity.entityDescription}}</ion-label>
