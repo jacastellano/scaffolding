@@ -59,28 +59,20 @@
             </ion-col>
           </ion-row>
         </div>
-        <div *ngIf="formMode==='CREATE'">
-          <ion-row>
-            <ion-col>
-              <ion-item lines="none">
-                <ion-button type="submit" [disabled]="f.title.errors" slot="end" padding-start padding-end>
-                  {{ 'DETAIL.FORM.CREATE' | translate }}
-                </ion-button>
-              </ion-item>
-            </ion-col>
-          </ion-row>
-        </div>
-        <div *ngIf="formMode==='EDIT'">
-          <ion-row>
-            <ion-col>
-              <ion-item lines="none">
-                <ion-button type="submit" [disabled]="f.title.errors" slot="end" padding-start padding-end>
-                  {{ 'DETAIL.FORM.SAVE' | translate }}
-                </ion-button>
-              </ion-item>
-            </ion-col>
-          </ion-row>
-        </div>
+        <ion-item lines="none">
+          <ion-button type="submit" [disabled]="f.title.errors" size="small">
+            <div *ngIf="formMode==='CREATE'">
+              {{ 'DETAIL.FORM.CREATE' | translate }}
+            </div>
+            <div *ngIf="formMode==='EDIT'">
+              {{ 'DETAIL.FORM.SAVE' | translate }}
+            </div>
+          </ion-button>
+          <ion-button size="small"
+            (click)="onCancel()">
+            {{ 'DETAIL.FORM.CANCEL' | translate }}
+          </ion-button>
+        </ion-item>
       </form>
     </ion-card-content>
   </ion-card>

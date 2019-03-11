@@ -23,7 +23,7 @@
     "DETAIL.FORM.UPDATEDATE" : "Fecha de actualización",
     "DETAIL.FORM.CREATE" : "Crear",
     "DETAIL.FORM.SAVE" : "Guardar",
-    "DETAIL.FORM.CLOSE" : "Cerrar",
+    "DETAIL.FORM.CANCEL" : "Cancelar",
 
     "MENU.TITLE" : "Menú",
     "MENU.OPT1.LABEL" : "Inicio",

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Entity } from 'src/app/models/entity.model';
 import { EntityService } from '../../services/entity.service';
@@ -19,6 +19,7 @@ export class DetailPage implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
+    private router: Router,
     private service: EntityService) { }
 
   get f() { return this.entityForm.controls; }
@@ -32,6 +33,11 @@ export class DetailPage implements OnInit {
     } else {
       this.updateEntity(this.entityForm.value);
     }
+    this.router.navigate(['/list'])
+  }
+
+  onCancel() {
+    this.router.navigate(['/list'])
   }
 
   createEntity(formValue: any) {
