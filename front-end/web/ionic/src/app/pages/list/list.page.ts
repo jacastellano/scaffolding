@@ -1,5 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, ViewChild } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import { IonInfiniteScroll } from '@ionic/angular';
 
 import { Entity } from 'src/app/models/entity.model';
@@ -13,7 +13,7 @@ const INCREMENT: number = 5;
   templateUrl: './list.page.html',
   styleUrls: ['./list.page.scss'],
 })
-export class ListPage implements OnInit {
+export class ListPage {
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
@@ -23,7 +23,20 @@ export class ListPage implements OnInit {
 
   constructor(
     private service: EntityService,
-    private router: Router) { }
+    private router: Router) {
+
+    // TODO Improve solution using ngOnInit
+    // Problem: After Navigation End when you create or update an entity,
+    // list is not actualized (ngOnInit is not invoked).
+    router.events.subscribe((event) => {
+      if ((event instanceof NavigationEnd)
+        && (event.url === '/list')) {
+        console.log(event.url);
+        this.initialize();
+      }
+    });
+
+  }
 
   loadData(event) {
     setTimeout(() => {
@@ -56,14 +69,16 @@ export class ListPage implements OnInit {
   }
 
   addEntity() {
-    this.router.navigate(['/list/new'])
+    this.router.navigateByUrl(this.router.url + '/new');
   }
 
   editEntity(id: number) {
     this.router.navigateByUrl(this.router.url + '/' + id);
   }
 
-  ngOnInit() {
+  initialize(): void {
+
+    console.log('ListPage:initialize()');
 
     this.completeEntityList = [];
 
@@ -82,7 +97,7 @@ export class ListPage implements OnInit {
         },
 
         (error) => {
-          console.log(error);
+          console.log('findAllEntities:ERROR:' + error);
         });
 
   }

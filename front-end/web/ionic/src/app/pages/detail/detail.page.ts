@@ -33,11 +33,10 @@ export class DetailPage implements OnInit {
     } else {
       this.updateEntity(this.entityForm.value);
     }
-    this.router.navigate(['/list'])
   }
 
   onCancel() {
-    this.router.navigate(['/list'])
+    this.router.navigateByUrl('/list');
   }
 
   createEntity(formValue: any) {
@@ -51,7 +50,8 @@ export class DetailPage implements OnInit {
       .subscribe(
         (response) => {
           const data = response.body;
-          console.log('createEntity:OK');
+          console.log('createEntity:OK:' + data);
+          this.router.navigateByUrl('/list');
         },
         (error) => {
           console.log('createEntity:ERROR: ' + error);
@@ -69,10 +69,11 @@ export class DetailPage implements OnInit {
       .subscribe(
         (response) => {
           const data = response.body;
-          console.log('updateEntity:OK');
+          console.log('updateEntity:OK' + data);
+          this.router.navigateByUrl('/list');
         },
         (error) => {
-          console.log('createEntity:ERROR: ' + error);
+          console.log('updateEntity:ERROR: ' + error);
         });
   }
 
