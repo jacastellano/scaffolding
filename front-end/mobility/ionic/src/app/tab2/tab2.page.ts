@@ -36,9 +36,41 @@ export class Tab2Page implements OnInit {
     this.displayedEntityList = this.completeEntityList.filter((value, index) => index < currentSize + n);
   }
 
+  convertToEntity(data: any): Entity {
+
+    const createDate = new Date(data.createDate);
+    const updateDate = new Date(data.updateDate);
+
+    const entity: Entity = {
+      ...data,
+      createDate: createDate.toISOString(),
+      updateDate: updateDate.toISOString(),
+    };
+
+    return entity;
+  }
+
   ngOnInit() {
-    this.completeEntityList = this.service.findAllEntities();
-    this.loadMoreEntities(INITIAL_LIST_SIZE);
+    
+    this.completeEntityList = [];
+    
+    this.service.findAllEntities()
+      
+      .then(data => {
+        console.log('status:' + data.status);
+        const collection: Entity[] = JSON.parse(data.data);
+        collection.forEach(e => {
+          const entity: Entity = this.convertToEntity(e);
+          this.completeEntityList.push(entity);
+        });
+        // load data
+        this.loadMoreEntities(INITIAL_LIST_SIZE);
+      })
+
+      .catch(error => {
+        console.log(error);
+      });
+
   }
 
 }

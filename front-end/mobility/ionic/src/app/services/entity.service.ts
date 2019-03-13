@@ -1,70 +1,41 @@
 import { Injectable } from '@angular/core';
 
+import { HTTP } from '@ionic-native/http/ngx';
+
 import { Entity } from '../models/entity.model';
 
-const ENTITIES: Entity[] = [
-  {
-    entityId: 1,
-    entityTitle: "Entity 1",
-    entityDescription: "Entity 1 in service",
-    createDate: new Date("01/01/2019").toISOString(),
-    updateDate: new Date("02/01/2019").toISOString(),
-  },
-  {
-    entityId: 2,
-    entityTitle: "Entity 2",
-    entityDescription: "Entity 2 in service",
-    createDate: new Date("03/01/2019").toISOString(),
-    updateDate: new Date("04/01/2019").toISOString(),
-  },
-  {
-    entityId: 3,
-    entityTitle: "Entity 3",
-    entityDescription: "Entity 3 in service",
-    createDate: new Date("05/01/2019").toISOString(),
-    updateDate: new Date("06/01/2019").toISOString(),
-  },
-  {
-    entityId: 4,
-    entityTitle: "Entity 4",
-    entityDescription: "Entity 4 in service",
-    createDate: new Date("07/01/2019").toISOString(),
-    updateDate: new Date("08/01/2019").toISOString(),
-  },
-  {
-    entityId: 5,
-    entityTitle: "Entity 5",
-    entityDescription: "Entity 5 in service",
-    createDate: new Date().toISOString(),
-    updateDate: new Date().toISOString(),
-  }
-];
+const ENTITY_SERVICE_URL: string = 'http://10.0.2.2:8080/entities';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EntityService {
 
-  constructor() { }
+  constructor(private http: HTTP) { }
 
-  findEntityById(id: number): Entity {
-    throw new Error("Method not implemented.");
+  findEntityById(id: string) {
+    const url: string = `${ENTITY_SERVICE_URL}/${id}`;
+    return this.http.get(url, {}, {});
   }
 
-  findAllEntities(): Entity[] {
-    return ENTITIES;
+  findAllEntities() {
+    const url: string = `${ENTITY_SERVICE_URL}`;
+    return this.http.get(url, {}, {});
   }
 
-  createEntity(entity: Entity): number {
-    throw new Error("Method not implemented.");
+  createEntity(entity: Entity) {
+    const url: string = `${ENTITY_SERVICE_URL}`;
+    return this.http.post(url, entity, {});
   }
 
   updateEntity(entity: Entity, id: number) {
-    throw new Error("Method not implemented.");
+    const url: string = `${ENTITY_SERVICE_URL}/${id}`;
+    return this.http.put(url, entity, {});
   }
 
   deleteEntity(id: number) {
-    throw new Error("Method not implemented.");
+    const url: string = `${ENTITY_SERVICE_URL}/${id}`;
+    return this.http.delete(url, {}, {});
   }
 
 }
