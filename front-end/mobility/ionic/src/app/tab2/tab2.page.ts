@@ -50,6 +50,14 @@ export class Tab2Page implements OnInit {
     return entity;
   }
 
+  addEntity() {
+    console.log('navidate to /list/new');
+  }
+
+  editEntity(id: number) {
+    console.log('navidate to /list/id');
+  }
+
   ngOnInit() {
     
     this.completeEntityList = [];

@@ -9,8 +9,13 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
+  <ion-item lines="none">
+    <ion-button slot="end" (click)="addEntity()">
+      <ion-icon slot="icon-only" name="add"></ion-icon>
+    </ion-button>
+  </ion-item>
   <ion-list *ngFor="let entity of displayedEntityList">
-    <ion-item>
+      <ion-item (click)="editEntity(entity.entityId)" button="true">
       <ion-label>{{entity.entityId}}</ion-label>
       <ion-label>{{entity.entityTitle}}</ion-label>
       <ion-datetime value="{{entity.createDate}}" displayFormat="DD/MM/YYYY HH:mm" readonly="true"></ion-datetime>
