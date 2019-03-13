@@ -1,10 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Geolocation } from '@ionic-native/geolocation/ngx';
-
-interface Position {
-  latitude: number;
-  longitude: number;
-}
 
 @Component({
   selector: 'app-tab3',
@@ -13,22 +7,9 @@ interface Position {
 })
 export class Tab3Page implements OnInit {
 
-  public currentPosition: Position = {
-    latitude: 0,
-    longitude: 0
-  };
+  constructor() { }
 
-  constructor(private geolocation: Geolocation) { }
-
-  ngOnInit(): void {
-    this.geolocation.getCurrentPosition().then((resp) => {
-      this.currentPosition = {
-        latitude: resp.coords.latitude,
-        longitude: resp.coords.longitude
-      };
-    }).catch((error) => {
-      console.log('Error getting location', error);
-    });
+  ngOnInit() {
   }
 
 }

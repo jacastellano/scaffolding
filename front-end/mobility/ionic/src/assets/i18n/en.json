@@ -1,24 +1,20 @@
 {
-    "TAB1.TITLE" : "Tab 1",
-    "TAB1.CARD.TITLE": "Tab 1",
+    "TAB1.TITLE" : "Inicio",
+    "TAB1.CARD.TITLE": "Inicio",
     "TAB1.CARD.SUBTITLE": "Antoine De Saint Exupéry",
     "TAB1.CARD.CONTENT": "Make your life a dream, and make your dream a reality.",
     
     "TAB2.TITLE" : "Entity list",
     "TAB2.SCROLL.LABEL": "Loading more data...",
 
-    "TAB3.TITLE" : "Geolocation",
-    "TAB3.CARD.TITLE" : "Geolocation",
-    "TAB3.CARD.SUBTITLE" : "Current geolocation",
-    "TAB3.CARD.LABEL.LATITUDE" : "Latitude",
-    "TAB3.CARD.LABEL.LONGITUDE" : "Longitude",
+    "TAB3.TITLE" : "About us",
 
     "MENU.TITLE" : "Menu",
     "MENU.OPT1.LABEL" : "Home",
     "MENU.OPT2.LABEL" : "Entity list",
-    "MENU.OPT3.LABEL" : "Geolocation",
+    "MENU.OPT3.LABEL" : "About us",
 
     "TABS.TAB1.LABEL" : "Home",
     "TABS.TAB2.LABEL" : "List",
-    "TABS.TAB3.LABEL" : "Geolocation"
+    "TABS.TAB3.LABEL" : "About us"
 }

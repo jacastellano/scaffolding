@@ -1,24 +1,20 @@
 {
-    "TAB1.TITLE" : "Pestaña 1",
-    "TAB1.CARD.TITLE": "Pestaña 1",
+    "TAB1.TITLE" : "Inicio",
+    "TAB1.CARD.TITLE": "Inicio",
     "TAB1.CARD.SUBTITLE": "Antoine De Saint Exupéry",
     "TAB1.CARD.CONTENT": "Haz de tu vida un sueño, y de tu sueño una realidad.",
     
     "TAB2.TITLE" : "Listado de entidades",
     "TAB2.SCROLL.LABEL": "Cargando más datos...",
 
-    "TAB3.TITLE" : "Geolocalización",
-    "TAB3.CARD.TITLE" : "Geolocalización",
-    "TAB3.CARD.SUBTITLE" : "Geolocalización actual",
-    "TAB3.CARD.LABEL.LATITUDE" : "Latitud",
-    "TAB3.CARD.LABEL.LONGITUDE" : "Longitud",
-
+    "TAB3.TITLE" : "Sobre nosotros",
+    
     "MENU.TITLE" : "Menú",
     "MENU.OPT1.LABEL" : "Inicio",
     "MENU.OPT2.LABEL" : "Listado de entidades",
-    "MENU.OPT3.LABEL" : "Geolocalización",
+    "MENU.OPT3.LABEL" : "Sobre nosotros",
 
     "TABS.TAB1.LABEL" : "Inicio",
     "TABS.TAB2.LABEL" : "Listado",
-    "TABS.TAB3.LABEL" : "Geolocalización"
+    "TABS.TAB3.LABEL" : "Sobre nosotros"
 }
