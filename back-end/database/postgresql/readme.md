@@ -22,3 +22,6 @@
 
 * Create Spring Oauth2 Data Model:
 	Execute oauth.sql
+
+* Add Spring Oauth2 Data Client:
+	Execute oauth_clients.sql
