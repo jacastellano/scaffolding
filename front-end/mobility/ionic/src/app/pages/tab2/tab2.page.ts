@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonInfiniteScroll } from '@ionic/angular';
 
-import { Entity } from '../models/entity.model';
-import { EntityService } from '../services/entity.service';
+import { Entity } from '../../models/entity.model';
+import { EntityService } from '../../services/entity.service';
 
 const INITIAL_LIST_SIZE: number = 12;
 const INCREMENT: number = 5;
