@@ -1,0 +1,236 @@
+{
+	"info": {
+		"_postman_id": "5334e5aa-3d69-4002-9e98-2cc64a2a0638",
+		"name": "scaffolding-rest-api (Oauth2)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "all",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "08d1a755-2def-4884-a6e9-408ae8daf1bf",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8082/entities",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"entities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "newEntity",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "29fd3223-0e84-4ccb-94ed-f42469c1d07b",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"entityId\": null,\n    \"entityTitle\": \"Postman entity\",\n    \"entityDescription\": \"Created entity width Postman\",\n    \"createDate\": null,\n    \"updateDate\": null,\n    \"deleteDate\": null\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/entities",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"entities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "one",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "08d1a755-2def-4884-a6e9-408ae8daf1bf",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8082/entities/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"entities",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "replaceEntity",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "29fd3223-0e84-4ccb-94ed-f42469c1d07b",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"entityId\": null,\n    \"entityTitle\": \"Postman update entity\",\n    \"entityDescription\": \"Updated entity width Postman\",\n    \"createDate\": null,\n    \"updateDate\": null,\n    \"deleteDate\": null\n}"
+				},
+				"url": {
+					"raw": "localhost:8082/entities/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"entities",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteEntity",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessToken",
+							"value": "865c359d-e6a0-41df-83e5-3cf121c947a3",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8082/entities/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"entities",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

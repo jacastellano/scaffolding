@@ -96,14 +96,14 @@
 					"raw": "{\n\t\"entityId\": null,\n    \"entityTitle\": \"Postman update entity\",\n    \"entityDescription\": \"Updated entity width Postman\",\n    \"createDate\": null,\n    \"updateDate\": null,\n    \"deleteDate\": null\n}"
 				},
 				"url": {
-					"raw": "localhost:8080/entities/13",
+					"raw": "localhost:8080/entities/1",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
 						"entities",
-						"13"
+						"1"
 					]
 				}
 			},
