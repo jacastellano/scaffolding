@@ -8,16 +8,23 @@
 * Create database
 
     ```
-    CREATE DATABASE scaffoldingdb;
+    CREATE DATABASE scaffoldingdb
+        WITH 
+        OWNER = postgres
+        ENCODING = 'UTF8'
+        CONNECTION LIMIT = -1;
     ```
 
 * Create schemas
 
     ```
-    CREATE SCHEMA comun;
-    CREATE SCHEMA entity;
+    CREATE SCHEMA common
+        AUTHORIZATION postgres;
+
+    CREATE SCHEMA entity
+        AUTHORIZATION postgres;
     ```
-* Create Entity table:
+* Create Entity Data Model:
 	Execute entity.sql
 
 * Create Spring Oauth2 Data Model:
