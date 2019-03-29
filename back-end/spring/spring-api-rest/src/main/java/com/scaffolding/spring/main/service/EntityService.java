@@ -48,7 +48,10 @@ public class EntityService {
 	 * @return the entity object that it was created
 	 */
 	public EntityDTO createEntity(EntityDTO entityDTO) {
-		entityDTO.setCreateDate(new Date());
+		Date createDate = new Date();
+		entityDTO.setCreateDate(createDate);
+		entityDTO.setUpdateDate(createDate);
+		entityDTO.setUpdateUser(entityDTO.getCreateUser());
 		EntityDAO entityDAO = EntityMapper.convert(entityDTO);
 		return EntityMapper.convert(repository.save(entityDAO));
 	}
@@ -63,9 +66,12 @@ public class EntityService {
 	public EntityDTO updateEntity(EntityDTO entity, Long entityId) {
 
 		EntityDAO entityToSave = repository.findById(entityId).map(e -> {
+			e.setEntityCode(entity.getEntityCode());
 			e.setEntityTitle(entity.getEntityTitle());
 			e.setEntityDescription(entity.getEntityDescription());
+			e.setEntityTypeId(entity.getEntityTypeId());
 			e.setUpdateDate(new Date());
+			e.setUpdateUser(entity.getUpdateUser());
 			return e;
 
 		}).orElseGet(() -> null);
@@ -78,10 +84,13 @@ public class EntityService {
 	 * 
 	 * @param entityId
 	 */
-	public EntityDTO deleteEntity(Long entityId) {
+	public EntityDTO deleteEntity(EntityDTO entity, Long entityId) {
 
 		EntityDAO entityToDelete = repository.findById(entityId).map(e -> {
-			e.setDeleteDate(new Date());
+			Date deleteDate = new Date();
+			e.setUpdateDate(deleteDate);
+			e.setUpdateUser(entity.getUpdateUser());
+			e.setDeleteDate(deleteDate);
 			return e;
 
 		}).orElseGet(() -> null);

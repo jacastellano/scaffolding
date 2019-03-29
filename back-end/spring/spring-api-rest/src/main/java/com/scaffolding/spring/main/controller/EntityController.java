@@ -108,9 +108,9 @@ public class EntityController {
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully delete entity."),
 			@ApiResponse(code = 404, message = "The resource you were trying to delete is not found") })
 	@DeleteMapping("/entities/{id}")
-	public ResponseEntity<EntityDTO> deleteEntity(@PathVariable Long id) {
+	public ResponseEntity<EntityDTO> deleteEntity(@Valid @RequestBody EntityDTO entity, @PathVariable Long id) {
 
-		EntityDTO deletedEntity = service.deleteEntity(id);
+		EntityDTO deletedEntity = service.deleteEntity(entity, id);
 
 		return (deletedEntity != null) ? new ResponseEntity<>(deletedEntity, HttpStatus.OK)
 				: new ResponseEntity<>(HttpStatus.NOT_FOUND);

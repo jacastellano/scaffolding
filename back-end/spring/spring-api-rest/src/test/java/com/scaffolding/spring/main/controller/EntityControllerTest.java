@@ -321,18 +321,19 @@ public class EntityControllerTest {
 		entity.setEntityId(1L);
 		entity.setEntityCode("0001/2019");
 		entity.setEntityTitle("title");
-		entity.setUpdateUser(3L);
 
 		// Mock service
-		when(serviceMock.deleteEntity(entity.getEntityId())).thenAnswer(new Answer<EntityDTO>() {
+		when(serviceMock.deleteEntity(entity, entity.getEntityId())).thenAnswer(new Answer<EntityDTO>() {
 
 			@Override
 			public EntityDTO answer(InvocationOnMock invocation) throws Throwable {
 				Object[] arguments = invocation.getArguments();
 				if (arguments != null && arguments.length > 0 && arguments[0] != null) {
-					Long entityId = (Long) arguments[0];
+					EntityDTO entity = (EntityDTO) arguments[0];
 					EntityDTO result = new EntityDTO();
-					result.setEntityId(entityId);
+					result.setEntityId(entity.getEntityId());
+					result.setEntityCode(entity.getEntityCode());
+					result.setEntityTitle(entity.getEntityTitle());
 					result.setDeleteDate(new Date());
 					return result;
 				}
@@ -341,14 +342,16 @@ public class EntityControllerTest {
 		});
 
 		// Invoke controller method and expect
-		mockMvc.perform(delete("/entities/{id}", entity.getEntityId()))
+		mockMvc.perform(delete("/entities/{id}", entity.getEntityId())
+				.contentType(MediaType.APPLICATION_JSON)
+	            .content(asJsonString(entity)))
 				.andExpect(status().isOk())
 				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
 				.andExpect(jsonPath("$.entityId", is(1)))
 				.andExpect(jsonPath("$.deleteDate").exists());
 
 		// Verify
-		verify(serviceMock, times(1)).deleteEntity(entity.getEntityId());
+		verify(serviceMock, times(1)).deleteEntity(entity, entity.getEntityId());
 		verifyNoMoreInteractions(serviceMock);
 	}
 	
@@ -363,14 +366,16 @@ public class EntityControllerTest {
 		entity.setUpdateUser(4L);
 
 		// Mock service
-		when(serviceMock.deleteEntity(entity.getEntityId())).thenReturn(null);
+		when(serviceMock.deleteEntity(entity, entity.getEntityId())).thenReturn(null);
 
 		// Invoke controller method and expect
-		mockMvc.perform(delete("/entities/{id}", entity.getEntityId()))
+		mockMvc.perform(delete("/entities/{id}", entity.getEntityId())
+				.contentType(MediaType.APPLICATION_JSON)
+	            .content(asJsonString(entity)))
 				.andExpect(status().isNotFound());
 
 		// Verify
-		verify(serviceMock, times(1)).deleteEntity(entity.getEntityId());
+		verify(serviceMock, times(1)).deleteEntity(entity, entity.getEntityId());
 		verifyNoMoreInteractions(serviceMock);
 	}
 

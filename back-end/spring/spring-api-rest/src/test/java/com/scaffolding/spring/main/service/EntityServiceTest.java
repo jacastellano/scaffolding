@@ -6,6 +6,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.mockito.Mockito.when;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -201,10 +203,12 @@ public class EntityServiceTest {
 	}
 
 	@Test
-	public void testUpdateEntity() {
+	public void testUpdateEntity() throws ParseException {
 
 		// Prepare data
-		Date createDate = new Date();
+		String pattern = "yyyy-MM-dd";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+		Date createDate = simpleDateFormat.parse("2018-09-09");
 		EntityDAO entityMock = new EntityDAO();
 		entityMock.setEntityId(1L);
 		entityMock.setEntityCode("0001/2019");
@@ -277,21 +281,22 @@ public class EntityServiceTest {
 	}
 
 	@Test
-	public void testDeleteEntity() {
+	public void testDeleteEntity() throws ParseException {
 
 		// Prepare data
-		Date createDate = new Date();
-		Date updateDate = new Date();
+		String pattern = "yyyy-MM-dd";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+		Date date = simpleDateFormat.parse("2018-09-09");
 		EntityDAO entityMock = new EntityDAO();
 		entityMock.setEntityId(1L);
 		entityMock.setEntityCode("0001/2019");
 		entityMock.setEntityTitle("title");
 		entityMock.setEntityDescription("description");
 		entityMock.setEntityTypeId(2L);
-		entityMock.setCreateDate(createDate);
+		entityMock.setCreateDate(date);
 		entityMock.setCreateUser(3L);
-		entityMock.setUpdateDate(updateDate);
-		entityMock.setUpdateUser(4L);
+		entityMock.setUpdateDate(date);
+		entityMock.setUpdateUser(3L);
 		
 
 		// Mock services
@@ -309,12 +314,18 @@ public class EntityServiceTest {
 			}
 		});
 
+		// Invoke service
+		EntityDTO deleteEntity = new EntityDTO();
+		deleteEntity.setEntityCode("0001/2019");
+		deleteEntity.setEntityTitle("title");
+		deleteEntity.setUpdateUser(2L);
+		EntityDTO entityResult = service.deleteEntity(deleteEntity, 1L);
+		
 		// Assertions
-		EntityDTO entityResult = service.deleteEntity(1L);
 		assertNotNull(entityResult);
 		assertEquals(1L, entityResult.getEntityId().longValue());
-		assertNotEquals(updateDate, entityResult.getUpdateDate());
-		assertEquals(4L, entityResult.getUpdateUser().longValue());
+		assertNotEquals(date, entityResult.getUpdateDate());
+		assertEquals(2L, entityResult.getUpdateUser().longValue());
 		assertNotNull(entityResult.getDeleteDate());
 
 	}
@@ -325,8 +336,13 @@ public class EntityServiceTest {
 		// Mock services
 		when(repositoryMock.findById(1L)).thenReturn(Optional.empty());
 
-		// Invoke services
-		EntityDTO entityResult = service.deleteEntity(1L);
+		// Invoke service
+		// Invoke service
+		EntityDTO deleteEntity = new EntityDTO();
+		deleteEntity.setEntityCode("0001/2019");
+		deleteEntity.setEntityTitle("title");
+		deleteEntity.setUpdateUser(2L);
+		EntityDTO entityResult = service.deleteEntity(deleteEntity, 1L);
 
 		// Assertions
 		assertNull(entityResult);
