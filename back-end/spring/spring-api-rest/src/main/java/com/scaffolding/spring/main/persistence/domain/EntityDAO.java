@@ -21,17 +21,29 @@ public class EntityDAO {
 	@Column(name = "ID")
 	private Long entityId;
 
+	@Column(name = "CODE")
+	private String entityCode;
+
 	@Column(name = "TITLE")
 	private String entityTitle;
 
 	@Column(name = "DESCRIPTION")
 	private String entityDescription;
 
+	@Column(name = "ENTITY_TYPE_ID")
+	private Long entityTypeId;
+
 	@Column(name = "CREATE_DATE")
 	private Date createDate;
 
+	@Column(name = "CREATE_USER")
+	private Long createUser;
+
 	@Column(name = "UPDATE_DATE")
 	private Date updateDate;
+
+	@Column(name = "UPDATE_USER")
+	private Long updateUser;
 
 	@Column(name = "DELETE_DATE")
 	private Date deleteDate;
@@ -40,20 +52,12 @@ public class EntityDAO {
 
 	}
 
-	public EntityDAO(String entityTitle, String entityDescription) {
+	public EntityDAO(String entityCode, String entityTitle, Long createUser, Long updateUser) {
+		super();
+		this.entityCode = entityCode;
 		this.entityTitle = entityTitle;
-		this.entityDescription = entityDescription;
-		this.createDate = new Date();
-	}
-
-	public EntityDAO(Long entityId, String entityTitle, String entityDescription, Date createDate, Date updateDate,
-			Date deleteDate) {
-		this.entityId = entityId;
-		this.entityTitle = entityTitle;
-		this.entityDescription = entityDescription;
-		this.createDate = createDate;
-		this.updateDate = updateDate;
-		this.deleteDate = deleteDate;
+		this.createUser = createUser;
+		this.updateUser = updateUser;
 	}
 
 }

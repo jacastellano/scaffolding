@@ -14,9 +14,15 @@ public class EntityDTO {
 	@NotNull
 	@NotEmpty
 	private String entityTitle;
+	@NotNull
+	@NotEmpty
+	private String entityCode;
 	private String entityDescription;
+	private Long entityTypeId;
 	private Date createDate;
+	private Long createUser;
 	private Date updateDate;
+	private Long updateUser;
 	private Date deleteDate;
 
 }

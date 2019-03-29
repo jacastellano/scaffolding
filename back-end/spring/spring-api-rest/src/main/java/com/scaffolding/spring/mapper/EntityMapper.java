@@ -16,10 +16,14 @@ public class EntityMapper {
 	public static EntityDTO convert(EntityDAO entityDAO) {
 		EntityDTO entityDTO = new EntityDTO();
 		entityDTO.setEntityId(entityDAO.getEntityId());
+		entityDTO.setEntityCode(entityDAO.getEntityCode());
 		entityDTO.setEntityTitle(entityDAO.getEntityTitle());
 		entityDTO.setEntityDescription(entityDAO.getEntityDescription());
+		entityDTO.setEntityTypeId(entityDAO.getEntityTypeId());
 		entityDTO.setCreateDate(entityDAO.getCreateDate());
+		entityDTO.setCreateUser(entityDAO.getCreateUser());
 		entityDTO.setUpdateDate(entityDAO.getUpdateDate());
+		entityDTO.setUpdateUser(entityDAO.getUpdateUser());
 		entityDTO.setDeleteDate(entityDAO.getDeleteDate());
 		return entityDTO;
 	}
@@ -32,10 +36,14 @@ public class EntityMapper {
 	public static EntityDAO convert(EntityDTO entityDTO) {
 		EntityDAO entityDAO = new EntityDAO();
 		entityDAO.setEntityId(entityDTO.getEntityId());
+		entityDAO.setEntityCode(entityDTO.getEntityCode());
 		entityDAO.setEntityTitle(entityDTO.getEntityTitle());
 		entityDAO.setEntityDescription(entityDTO.getEntityDescription());
+		entityDAO.setEntityTypeId(entityDTO.getEntityTypeId());
 		entityDAO.setCreateDate(entityDTO.getCreateDate());
+		entityDAO.setCreateUser(entityDTO.getCreateUser());
 		entityDAO.setUpdateDate(entityDTO.getUpdateDate());
+		entityDAO.setUpdateUser(entityDTO.getUpdateUser());
 		entityDAO.setDeleteDate(entityDTO.getDeleteDate());
 		return entityDAO;
 	}

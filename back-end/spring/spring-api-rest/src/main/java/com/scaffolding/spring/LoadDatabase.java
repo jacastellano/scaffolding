@@ -18,9 +18,9 @@ class LoadDatabase {
 	@Bean
 	CommandLineRunner initDatabase(EntityRepository repository) {
 		return args -> {
-			log.info(PRELOADING + repository.save(new EntityDAO("EntityA", "Preloaded entity A")));
-			log.info(PRELOADING + repository.save(new EntityDAO("EntityB", "Preloaded entity B")));
-			log.info(PRELOADING + repository.save(new EntityDAO("EntityC", "Preloaded entity C")));
+			log.info(PRELOADING + repository.save(new EntityDAO("0001/2019", "Entity A", 1L, 2L)));
+			log.info(PRELOADING + repository.save(new EntityDAO("0002/2019", "Entity B", 1L, 2L)));
+			log.info(PRELOADING + repository.save(new EntityDAO("0003/2019", "Entity C", 1L, 2L)));
 		};
 	}
 }
