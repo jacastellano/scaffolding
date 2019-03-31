@@ -2,8 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Entity } from 'src/app/models/entity.model';
+import { Entity, convertToEntity } from 'src/app/models/entity.model';
 import { EntityService } from '../../services/entity.service';
+
+// TODO Add users managment
+// default user code
+const USER_CODE = 0;
 
 @Component({
   selector: 'app-detail',
@@ -12,7 +16,7 @@ import { EntityService } from '../../services/entity.service';
 })
 export class DetailPage implements OnInit {
 
-  entityId: string;
+  entityId: number;
   formMode: string;
   entityForm: FormGroup;
 
@@ -42,15 +46,16 @@ export class DetailPage implements OnInit {
   createEntity(formValue: any) {
 
     const newEntity: Entity = {
+      entityCode: formValue.code,
       entityTitle: formValue.title,
       entityDescription: formValue.description,
+      createUser: USER_CODE
     };
 
     this.service.createEntity(newEntity)
       .subscribe(
         (response) => {
-          const data = response.body;
-          console.log('createEntity:OK:' + data);
+          console.log('createEntity:OK');
           this.router.navigateByUrl('/list');
         },
         (error) => {
@@ -61,15 +66,16 @@ export class DetailPage implements OnInit {
   updateEntity(formValue: any) {
 
     const updatedEntity: Entity = {
+      entityId: this.entityId,
+      entityCode: formValue.code, 
       entityTitle: formValue.title,
       entityDescription: formValue.description,
+      updateUser: USER_CODE
     };
 
     this.service.updateEntity(updatedEntity, this.entityId)
       .subscribe(
         (response) => {
-          const data = response.body;
-          console.log('updateEntity:OK' + data);
           this.router.navigateByUrl('/list');
         },
         (error) => {
@@ -79,10 +85,10 @@ export class DetailPage implements OnInit {
 
   ngOnInit(): void {
 
-    this.entityId = this.route.snapshot.paramMap.get('id');
+    this.entityId = +this.route.snapshot.paramMap.get('id');
 
     this.entityForm = this.formBuilder.group({
-      entityId: '',
+      code: ['', Validators.required],
       title: ['', Validators.required],
       description: '',
       createDate: '',
@@ -99,9 +105,9 @@ export class DetailPage implements OnInit {
       this.service.findEntityById(this.entityId)
         .subscribe(
           (response) => {
-            const data: Entity = this.convertToEntity(response.body);
+            const data: Entity = convertToEntity(response.body);
             this.entityForm.setValue({
-              entityId: data.entityId,
+              code: data.entityCode,
               title: data.entityTitle,
               description: data.entityDescription,
               createDate: data.createDate,
@@ -113,20 +119,6 @@ export class DetailPage implements OnInit {
           });
     }
 
-  }
-
-  convertToEntity(data: any): Entity {
-
-    const createDate = new Date(data.createDate);
-    const updateDate = new Date(data.updateDate ? data.updateDate : data.createDate);
-
-    const entity: Entity = {
-      ...data,
-      createDate: createDate.toISOString(),
-      updateDate: updateDate.toISOString(),
-    };
-
-    return entity;
   }
 
 }

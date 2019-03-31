@@ -16,7 +16,7 @@ export class EntityService {
 
   constructor(private http: HttpClient) { }
 
-  findEntityById(id: string): Observable<HttpResponse<Entity>> {
+  findEntityById(id: number): Observable<HttpResponse<Entity>> {
 
     const url: string = `${ENTITY_SERVICE_URL}/${id}`;
 
@@ -53,7 +53,7 @@ export class EntityService {
     );
   }
 
-  updateEntity(entity: Entity, id: string): Observable<HttpResponse<Entity>> {
+  updateEntity(entity: Entity, id: number): Observable<HttpResponse<Entity>> {
 
     const url: string = `${ENTITY_SERVICE_URL}/${id}`;
 
@@ -66,7 +66,7 @@ export class EntityService {
     );
   }
 
-  deleteEntity(id: string): Observable<HttpResponse<Entity>> {
+  deleteEntity(id: number): Observable<HttpResponse<Entity>> {
 
     const url: string = `${ENTITY_SERVICE_URL}/${id}`;
 

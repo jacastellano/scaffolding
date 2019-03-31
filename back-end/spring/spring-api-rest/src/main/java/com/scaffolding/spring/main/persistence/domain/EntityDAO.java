@@ -52,11 +52,15 @@ public class EntityDAO {
 
 	}
 
-	public EntityDAO(String entityCode, String entityTitle, Long createUser, Long updateUser) {
+	public EntityDAO(String entityCode, String entityTitle, String entityDescription, Long createUser, Long updateUser) {
 		super();
+		Date currentDate = new Date();
 		this.entityCode = entityCode;
 		this.entityTitle = entityTitle;
+		this.entityDescription = entityDescription;
+		this.createDate = currentDate;
 		this.createUser = createUser;
+		this.updateDate = currentDate;
 		this.updateUser = updateUser;
 	}
 

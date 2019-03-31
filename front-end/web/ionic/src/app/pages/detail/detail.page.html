@@ -23,6 +23,19 @@
         <ion-row>
           <ion-col>
             <ion-item>
+              <ion-label>{{ 'DETAIL.FORM.CODE' | translate }}:</ion-label>
+              <ion-input type="text" formControlName="code"
+                placeholder="{{ 'DETAIL.FORM.CODE.PLACEHOLDER' | translate }}" [readonly]="formMode==='VIEW'">
+              </ion-input>
+              <div *ngIf="f.code.touched && f.code.errors && f.code.errors.required">
+                <ion-note color="danger">{{ 'DETAIL.FORM.CODE.VALIDATION.REQUIRED' | translate }}</ion-note>
+              </div>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
               <ion-label>{{ 'DETAIL.FORM.TITLE' | translate }}:</ion-label>
               <ion-input type="text" formControlName="title"
                 placeholder="{{ 'DETAIL.FORM.TITLE.PLACEHOLDER' | translate }}" [readonly]="formMode==='VIEW'">
