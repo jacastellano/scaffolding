@@ -23,4 +23,4 @@ export const convertToEntity = (data: any): Entity => {
     };
 
     return entity;
-  }
+  };

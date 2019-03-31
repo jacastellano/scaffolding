@@ -1,9 +1,9 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed, async } from '@angular/core/testing';
-import { HttpClientTestingModule } from "@angular/common/http/testing";
-import { HttpClient } from "@angular/common/http";
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClient } from '@angular/common/http';
 
-import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 
 import { AppComponent } from './app.component';
 import { createTranslateLoader } from './app.module';

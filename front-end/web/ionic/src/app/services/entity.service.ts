@@ -7,7 +7,7 @@ import { throwError } from 'rxjs';
 
 import { Entity } from '../models/entity.model';
 
-const ENTITY_SERVICE_URL: string = 'http://localhost:8080/entities';
+const ENTITY_SERVICE_URL = 'http://localhost:8080/entities';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class EntityService {
 
   findEntityById(id: number): Observable<HttpResponse<Entity>> {
 
-    const url: string = `${ENTITY_SERVICE_URL}/${id}`;
+    const url = `${ENTITY_SERVICE_URL}/${id}`;
 
     return this.http.get<Entity>(
       url,
@@ -30,7 +30,7 @@ export class EntityService {
 
   findAllEntities(): Observable<HttpResponse<Entity[]>> {
 
-    const url: string = `${ENTITY_SERVICE_URL}`;
+    const url = `${ENTITY_SERVICE_URL}`;
 
     return this.http.get<Entity[]>(
       url,
@@ -42,7 +42,7 @@ export class EntityService {
 
   createEntity(entity: Entity): Observable<HttpResponse<Entity>> {
 
-    const url: string = `${ENTITY_SERVICE_URL}`;
+    const url = `${ENTITY_SERVICE_URL}`;
 
     return this.http.post<Entity>(
       url,
@@ -55,7 +55,7 @@ export class EntityService {
 
   updateEntity(entity: Entity, id: number): Observable<HttpResponse<Entity>> {
 
-    const url: string = `${ENTITY_SERVICE_URL}/${id}`;
+    const url = `${ENTITY_SERVICE_URL}/${id}`;
 
     return this.http.put<Entity>(
       url,
@@ -68,7 +68,7 @@ export class EntityService {
 
   deleteEntity(id: number): Observable<HttpResponse<Entity>> {
 
-    const url: string = `${ENTITY_SERVICE_URL}/${id}`;
+    const url = `${ENTITY_SERVICE_URL}/${id}`;
 
     return this.http.delete<Entity>(
       url,
@@ -91,6 +91,6 @@ export class EntityService {
     }
     // return an observable with the error
     return throwError(error);
-  };
+  }
 
 }

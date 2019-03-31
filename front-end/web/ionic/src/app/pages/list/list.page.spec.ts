@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClient, HttpHandler } from "@angular/common/http";
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 import { TranslateModule, TranslateStore } from '@ngx-translate/core';
 

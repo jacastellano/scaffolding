@@ -67,7 +67,7 @@ export class DetailPage implements OnInit {
 
     const updatedEntity: Entity = {
       entityId: this.entityId,
-      entityCode: formValue.code, 
+      entityCode: formValue.code,
       entityTitle: formValue.title,
       entityDescription: formValue.description,
       updateUser: USER_CODE

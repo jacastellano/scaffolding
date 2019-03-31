@@ -5,8 +5,8 @@ import { IonInfiniteScroll } from '@ionic/angular';
 import { Entity } from 'src/app/models/entity.model';
 import { EntityService } from 'src/app/services/entity.service';
 
-const INITIAL_LIST_SIZE: number = 15;
-const INCREMENT: number = 5;
+const INITIAL_LIST_SIZE = 15;
+const INCREMENT = 5;
 
 @Component({
   selector: 'app-list',
