@@ -5,6 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
+import { IonicModule } from '@ionic/angular';
+
 import { TranslateModule, TranslateStore } from '@ngx-translate/core';
 
 import { DetailPage } from './detail.page';
@@ -22,6 +24,7 @@ describe('DetailPage', () => {
         TranslateModule.forChild(),
         ReactiveFormsModule,
         RouterTestingModule.withRoutes(routes),
+        IonicModule
       ],
       providers: [TranslateStore, HttpClient, HttpHandler],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
