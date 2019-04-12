@@ -69,7 +69,6 @@ public class EntityService {
 			e.setEntityCode(entity.getEntityCode());
 			e.setEntityTitle(entity.getEntityTitle());
 			e.setEntityDescription(entity.getEntityDescription());
-			e.setEntityTypeId(entity.getEntityTypeId());
 			e.setUpdateDate(new Date());
 			e.setUpdateUser(entity.getUpdateUser());
 			return e;

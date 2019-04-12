@@ -65,7 +65,6 @@ public class EntityControllerTest {
 		mockEntity.setEntityCode("0001/2019");
 		mockEntity.setEntityTitle("title");
 		mockEntity.setEntityDescription("description");
-		mockEntity.setEntityTypeId(2L);
 		mockEntity.setCreateDate(new Date());
 		mockEntity.setCreateUser(3L);
 		mockEntity.setUpdateDate(new Date());
@@ -82,7 +81,6 @@ public class EntityControllerTest {
 				.andExpect(jsonPath("$.entityCode", is("0001/2019")))
 				.andExpect(jsonPath("$.entityTitle", is("title")))
 				.andExpect(jsonPath("$.entityDescription", is("description")))
-				.andExpect(jsonPath("$.entityTypeId", is(2)))
 				.andExpect(jsonPath("$.createDate").exists())
 				.andExpect(jsonPath("$.createUser", is(3)))
 				.andExpect(jsonPath("$.updateDate").exists())
@@ -194,7 +192,6 @@ public class EntityControllerTest {
 					result.setEntityCode(entity.getEntityCode());
 					result.setEntityTitle(entity.getEntityTitle());
 					result.setEntityDescription(entity.getEntityDescription());
-					result.setEntityTypeId(entity.getEntityTypeId());
 					result.setCreateDate(new Date());
 					result.setCreateUser(entity.getCreateUser());
 					result.setUpdateDate(new Date());
@@ -210,8 +207,8 @@ public class EntityControllerTest {
 		entity.setEntityCode("0001/2019");
 		entity.setEntityTitle("title");
 		entity.setEntityDescription("description");
-		entity.setEntityTypeId(2L);
 		entity.setCreateUser(3L);
+		entity.setUpdateUser(3L);
 
 		// Invoke controller method and expect
 		mockMvc.perform(post("/entities")
@@ -223,7 +220,6 @@ public class EntityControllerTest {
 				.andExpect(jsonPath("$.entityCode", is("0001/2019")))
 				.andExpect(jsonPath("$.entityTitle", is("title")))
 				.andExpect(jsonPath("$.entityDescription", is("description")))
-				.andExpect(jsonPath("$.entityTypeId", is(2)))
 				.andExpect(jsonPath("$.createDate").exists())
 				.andExpect(jsonPath("$.createUser", is(3)))
 				.andExpect(jsonPath("$.updateDate").exists())
@@ -244,7 +240,7 @@ public class EntityControllerTest {
 		entity.setEntityCode("0001/2019");
 		entity.setEntityTitle("title");
 		entity.setEntityDescription("description");
-		entity.setEntityTypeId(2L);
+		entity.setCreateUser(3L);
 		entity.setUpdateUser(3L);
 		
 		// Mock service
@@ -260,7 +256,6 @@ public class EntityControllerTest {
 					result.setEntityCode(entity.getEntityCode());
 					result.setEntityTitle(entity.getEntityTitle());
 					result.setEntityDescription(entity.getEntityDescription());
-					result.setEntityTypeId(entity.getEntityTypeId());
 					result.setUpdateDate(new Date());
 					result.setUpdateUser(entity.getUpdateUser());
 					return result;
@@ -279,7 +274,6 @@ public class EntityControllerTest {
 				.andExpect(jsonPath("$.entityCode", is("0001/2019")))
 				.andExpect(jsonPath("$.entityTitle", is("title")))
 				.andExpect(jsonPath("$.entityDescription", is("description")))
-				.andExpect(jsonPath("$.entityTypeId", is(2)))
 				.andExpect(jsonPath("$.updateDate").exists())
 				.andExpect(jsonPath("$.updateUser", is(3)))
 				.andExpect(jsonPath("$.deleteDate").doesNotExist());
@@ -298,6 +292,8 @@ public class EntityControllerTest {
 		entity.setEntityId(1L);
 		entity.setEntityCode("0001/2019");
 		entity.setEntityTitle("title");
+		entity.setCreateUser(3L);
+		entity.setUpdateUser(3L);
 		
 		// Mock service
 	    when(serviceMock.updateEntity(entity, entity.getEntityId())).thenReturn(null);
@@ -321,7 +317,9 @@ public class EntityControllerTest {
 		entity.setEntityId(1L);
 		entity.setEntityCode("0001/2019");
 		entity.setEntityTitle("title");
-
+		entity.setCreateUser(3L);
+		entity.setUpdateUser(3L);
+		
 		// Mock service
 		when(serviceMock.deleteEntity(entity, entity.getEntityId())).thenAnswer(new Answer<EntityDTO>() {
 
@@ -363,7 +361,8 @@ public class EntityControllerTest {
 		entity.setEntityId(1L);
 		entity.setEntityCode("0001/2019");
 		entity.setEntityTitle("title");
-		entity.setUpdateUser(4L);
+		entity.setCreateUser(3L);
+		entity.setUpdateUser(3L);
 
 		// Mock service
 		when(serviceMock.deleteEntity(entity, entity.getEntityId())).thenReturn(null);

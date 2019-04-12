@@ -19,7 +19,6 @@ public class EntityMapper {
 		entityDTO.setEntityCode(entityDAO.getEntityCode());
 		entityDTO.setEntityTitle(entityDAO.getEntityTitle());
 		entityDTO.setEntityDescription(entityDAO.getEntityDescription());
-		entityDTO.setEntityTypeId(entityDAO.getEntityTypeId());
 		entityDTO.setCreateDate(entityDAO.getCreateDate());
 		entityDTO.setCreateUser(entityDAO.getCreateUser());
 		entityDTO.setUpdateDate(entityDAO.getUpdateDate());
@@ -39,7 +38,6 @@ public class EntityMapper {
 		entityDAO.setEntityCode(entityDTO.getEntityCode());
 		entityDAO.setEntityTitle(entityDTO.getEntityTitle());
 		entityDAO.setEntityDescription(entityDTO.getEntityDescription());
-		entityDAO.setEntityTypeId(entityDTO.getEntityTypeId());
 		entityDAO.setCreateDate(entityDTO.getCreateDate());
 		entityDAO.setCreateUser(entityDTO.getCreateUser());
 		entityDAO.setUpdateDate(entityDTO.getUpdateDate());

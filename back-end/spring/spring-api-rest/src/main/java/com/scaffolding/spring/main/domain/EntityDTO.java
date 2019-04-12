@@ -18,10 +18,11 @@ public class EntityDTO {
 	@NotEmpty
 	private String entityCode;
 	private String entityDescription;
-	private Long entityTypeId;
 	private Date createDate;
+	@NotNull
 	private Long createUser;
 	private Date updateDate;
+	@NotNull
 	private Long updateUser;
 	private Date deleteDate;
 

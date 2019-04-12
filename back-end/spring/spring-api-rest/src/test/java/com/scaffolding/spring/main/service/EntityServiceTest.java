@@ -57,7 +57,6 @@ public class EntityServiceTest {
 		entityMock.setEntityCode("0001/2019");
 		entityMock.setEntityTitle("title");
 		entityMock.setEntityDescription("description");
-		entityMock.setEntityTypeId(2L);
 		entityMock.setCreateDate(createDate);
 		entityMock.setCreateUser(3L);
 		entityMock.setUpdateDate(updateDate);
@@ -75,7 +74,6 @@ public class EntityServiceTest {
 		assertEquals("0001/2019", entityResult.getEntityCode());
 		assertEquals("title", entityResult.getEntityTitle());
 		assertEquals("description", entityResult.getEntityDescription());
-		assertEquals(2L, entityResult.getEntityTypeId().longValue());
 		assertEquals(createDate, entityResult.getCreateDate());
 		assertEquals(3L, entityResult.getCreateUser().longValue());
 		assertEquals(updateDate, entityResult.getUpdateDate());
@@ -108,7 +106,6 @@ public class EntityServiceTest {
 		entityMock1.setEntityCode("0001/2019");
 		entityMock1.setEntityTitle("title");
 		entityMock1.setEntityDescription("description");
-		entityMock1.setEntityTypeId(2L);
 		entityMock1.setCreateDate(createDate1);
 		entityMock1.setCreateUser(3L);
 		entityMock1.setUpdateDate(updateDate1);
@@ -122,7 +119,6 @@ public class EntityServiceTest {
 		entityMock2.setEntityCode("0001/2019");
 		entityMock2.setEntityTitle("title");
 		entityMock2.setEntityDescription("description");
-		entityMock2.setEntityTypeId(2L);
 		entityMock2.setCreateDate(createDate2);
 		entityMock2.setCreateUser(3L);
 		entityMock2.setUpdateDate(updateDate2);
@@ -182,7 +178,6 @@ public class EntityServiceTest {
 		newEntity.setEntityCode("0001/2019");
 		newEntity.setEntityTitle("title");
 		newEntity.setEntityDescription("description");
-		newEntity.setEntityTypeId(2L);
 		newEntity.setCreateUser(3L);
 		EntityDTO entityResult = service.createEntity(newEntity);
 
@@ -192,7 +187,6 @@ public class EntityServiceTest {
 		assertEquals("0001/2019", entityResult.getEntityCode());
 		assertEquals("title", entityResult.getEntityTitle());
 		assertEquals("description", entityResult.getEntityDescription());
-		assertEquals(2L, entityResult.getEntityTypeId().longValue());
 		assertNotNull(entityResult.getCreateDate());
 		assertEquals(3L, entityResult.getCreateUser().longValue());
 		assertNotNull(entityResult.getUpdateDate());
@@ -214,7 +208,6 @@ public class EntityServiceTest {
 		entityMock.setEntityCode("0001/2019");
 		entityMock.setEntityTitle("title");
 		entityMock.setEntityDescription("description");
-		entityMock.setEntityTypeId(2L);
 		entityMock.setCreateDate(createDate);
 		entityMock.setCreateUser(3L);
 		entityMock.setUpdateDate(createDate);
@@ -240,7 +233,6 @@ public class EntityServiceTest {
 		updateEntity.setEntityCode("0002/2019");
 		updateEntity.setEntityTitle("update title");
 		updateEntity.setEntityDescription("update description");
-		updateEntity.setEntityTypeId(20L);
 		updateEntity.setUpdateUser(4L);
 		EntityDTO entityResult = service.updateEntity(updateEntity, 1L);
 
@@ -250,7 +242,6 @@ public class EntityServiceTest {
 		assertEquals("0002/2019", entityResult.getEntityCode());
 		assertEquals("update title", entityResult.getEntityTitle());
 		assertEquals("update description", entityResult.getEntityDescription());
-		assertEquals(20L, entityResult.getEntityTypeId().longValue());
 		assertEquals(createDate, entityResult.getCreateDate());
 		assertEquals(3L, entityResult.getCreateUser().longValue());
 		assertNotNull(entityResult.getUpdateDate());
@@ -271,7 +262,6 @@ public class EntityServiceTest {
 		updateEntity.setEntityCode("0001/2019");
 		updateEntity.setEntityTitle("title");
 		updateEntity.setEntityDescription("description");
-		updateEntity.setEntityTypeId(2L);
 		updateEntity.setUpdateUser(4L);
 		EntityDTO entityResult = service.updateEntity(updateEntity, 1L);
 
@@ -292,7 +282,6 @@ public class EntityServiceTest {
 		entityMock.setEntityCode("0001/2019");
 		entityMock.setEntityTitle("title");
 		entityMock.setEntityDescription("description");
-		entityMock.setEntityTypeId(2L);
 		entityMock.setCreateDate(date);
 		entityMock.setCreateUser(3L);
 		entityMock.setUpdateDate(date);
