@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5334e5aa-3d69-4002-9e98-2cc64a2a0638",
+		"_postman_id": "d099fc57-0349-4feb-83a7-8a1b1f8a4b3f",
 		"name": "scaffolding-rest-api (Oauth2)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -13,7 +13,7 @@
 					"oauth2": [
 						{
 							"key": "accessToken",
-							"value": "08d1a755-2def-4884-a6e9-408ae8daf1bf",
+							"value": "bed23bd5-08ec-40cc-a28c-d2f25bb79585",
 							"type": "string"
 						},
 						{
@@ -55,7 +55,7 @@
 					"oauth2": [
 						{
 							"key": "accessToken",
-							"value": "29fd3223-0e84-4ccb-94ed-f42469c1d07b",
+							"value": "bed23bd5-08ec-40cc-a28c-d2f25bb79585",
 							"type": "string"
 						},
 						{
@@ -104,7 +104,7 @@
 					"oauth2": [
 						{
 							"key": "accessToken",
-							"value": "08d1a755-2def-4884-a6e9-408ae8daf1bf",
+							"value": "bed23bd5-08ec-40cc-a28c-d2f25bb79585",
 							"type": "string"
 						},
 						{
@@ -147,7 +147,7 @@
 					"oauth2": [
 						{
 							"key": "accessToken",
-							"value": "29fd3223-0e84-4ccb-94ed-f42469c1d07b",
+							"value": "bed23bd5-08ec-40cc-a28c-d2f25bb79585",
 							"type": "string"
 						},
 						{
@@ -197,7 +197,7 @@
 					"oauth2": [
 						{
 							"key": "accessToken",
-							"value": "865c359d-e6a0-41df-83e5-3cf121c947a3",
+							"value": "bed23bd5-08ec-40cc-a28c-d2f25bb79585",
 							"type": "string"
 						},
 						{
